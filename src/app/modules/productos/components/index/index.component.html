@@ -1,27 +1,5 @@
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 <div class="row">
     <div class="col-12 mb-4">
@@ -37,7 +15,7 @@
 
 <div class="row products">
     <div class="col-3 mb-4">
-        <div class="product p-4">
+        <div class="product p-4" data-toggle="modal" data-target="#exampleModal">
             <div class="img">
                 <img src="assets/products/image-2.png">
             </div>
@@ -53,7 +31,7 @@
         </div>
     </div>
     <div class="col-3 mb-4">
-        <div class="product p-4">
+        <div class="product p-4" data-toggle="modal" data-target="#exampleModal">
             <div class="img">
                 <img src="assets/products/image-8.png">
             </div>
@@ -69,7 +47,7 @@
         </div>
     </div>
     <div class="col-3 mb-4">
-        <div class="product p-4">
+        <div class="product p-4" data-toggle="modal" data-target="#exampleModal">
             <div class="img">
                 <img src="assets/products/image-7.png">
             </div>
@@ -85,7 +63,7 @@
         </div>
     </div>
     <div class="col-3 mb-4">
-        <div class="product p-4">
+        <div class="product p-4" data-toggle="modal" data-target="#exampleModal">
             <div class="img">
                 <img src="assets/products/image-6.png">
             </div>
@@ -101,7 +79,7 @@
         </div>
     </div>
     <div class="col-3 mb-4">
-        <div class="product p-4">
+        <div class="product p-4" data-toggle="modal" data-target="#exampleModal">
             <div class="img">
                 <img src="assets/products/image-5.png">
             </div>
@@ -117,7 +95,7 @@
         </div>
     </div>
     <div class="col-3 mb-4">
-        <div class="product p-4">
+        <div class="product p-4" data-toggle="modal" data-target="#exampleModal">
             <div class="img">
                 <img src="assets/products/image-4.png">
             </div>
@@ -133,7 +111,7 @@
         </div>
     </div>
     <div class="col-3 mb-4">
-        <div class="product p-4">
+        <div class="product p-4" data-toggle="modal" data-target="#exampleModal">
             <div class="img">
                 <img src="assets/products/image-3.png">
             </div>
@@ -149,7 +127,7 @@
         </div>
     </div>
     <div class="col-3 mb-4">
-        <div class="product p-4">
+        <div class="product p-4" data-toggle="modal" data-target="#exampleModal">
             <div class="img">
                 <img src="assets/products/image-2.png">
             </div>
@@ -166,4 +144,55 @@
     </div>
     
 </div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header d-none">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="assets/products/1.png">
+            </div>
+            <div class="col-12 col-md-6 ficha">
+                <h3 class="mt-5">LINTERNA DE MANO STREAMLIGTH SIEGE</h3>
+                <span class="mb-4">COD: 44943</span>
+                LINTERNA DE MANO ULTRACOMPACTA Y ALCALINA
+
+                <div class="boxScroll overflow-auto">
+                    <p>Una linterna resistente y compacta para cuando necesite una gran cantidad de luz sin requerir demasiado espacio. La Siege AA usa pilas alcalinas AA asequibles y fáciles de encontrar para ofrecer 360° de luz suave y uniforme que ilumina un área extensa.</p>
+
+                    <p>Varios modos:</p>
+                    <p>LED blanco (un LED C4®) con la tapa quitada:</p>
+                    <p>Alto, para la luz más brillante: 200 lúmenes y 7 horas de funcionamiento Medio, para una luz brillante y mayor duración: 100 lúmenes, 15.5 horas de funcionamiento</p>
+                    <p>Bajo, para tiempos de funcionamiento prolongados cuando se necesita menos luz: 50 lúmenes y 37 horas de funcionamiento.
+                    </p>
+
+                    <p>LED rojo (dos LED rojos)</p>
+                    <p>LED rojo, Alto (modo para visión nocturna): 0.7 lúmenes, 192 horas de funcionamiento (8 días)</p>
+                    <p>Modo SOS intermitente, para señalar emergencias: 0.7 lúmenes, 288 horas de funcionamiento (12 días)</p>
+                </div>
+                 
+                    
+
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary d-none">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 

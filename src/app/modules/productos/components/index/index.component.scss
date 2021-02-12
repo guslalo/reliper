@@ -3,7 +3,20 @@
         width: 100%;
     }
 }
-
+.boxScroll {
+    height: 300px;
+}
+.ficha {
+    color:#6E6D6D;
+    h3 { font-size: 18px;}
+    span {
+        color:#C4C4C4;
+        display: block;
+    }
+    p {
+        color:#C4C4C4;
+    }
+}
 .products {
     .product {
         display: inline-block;
@@ -16,6 +29,7 @@
         position: relative;
         .img {
             width: 100%;
+            cursor: pointer;
             img {
                 width: 100%;
             }

@@ -36,6 +36,9 @@ ul.menu {
         position: relative;
         transition: 0.3s;
         cursor: pointer;
+        img {
+            margin-top: 15px;
+        }
         span {
             position: absolute;
             bottom: 30px;
