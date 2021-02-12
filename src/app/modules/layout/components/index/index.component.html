@@ -1,0 +1,99 @@
+<!--wrap-->
+<div id="wrap" class="container-fluid">
+    <header >
+        <div class="container-fluid p-0">
+            <div class="row d-flex align-items-center">
+                <div class="col-4 pl-0">
+                    <img class="pt-1" src="assets/logo.svg">
+                </div>
+                <div class="col-4">
+                    <div class="input-group mt-2">
+                        <input type="text" class="form-control bg-grey font-size-13 height-45" placeholder="Busca tus productos aquí" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-primary pl-4 pr-4 font-size-13 height-45" type="button" id="button-addon2">Buscar</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="boxCarro mt-3 float-right">
+                        <div class="boxTotal mt-1">
+                            <span class="font-size-13">$229.990</span>
+                        </div>
+                        <div class="total mt-1">
+                            <span class="font-size-13">4 items</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid p-0">
+        <div class="row">
+            <main>
+                <div class="container-fluid mt-5">
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <div class="sideNav">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>FILTRO POR CATEGORÍAS</option>
+                                    <option value="1">Categoria ejemplo</option>
+                                    <option value="2">Categoria ejemplo</option>
+                                    <option value="3">Categoria ejemplo</option>
+                                  </select>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <ul class="menu mt-4">
+                                        <li class="p-4">
+                                            <img src="assets/icons/safety.svg" alt="">
+                                            <span>SEGURIDAD</span>
+                                        </li>
+                                        <li  class="p-3">
+                                            <img src="assets/icons/flashlight.svg" alt="">
+                                            <span>LINTERNAS</span>
+                                        </li>
+                                        <li  class="p-4">
+                                            <img src="assets/icons/tools.svg" alt="">
+                                            <span>HERRAMIENTAS  </span>
+                                        </li>
+                                        <li  class="p-4">
+                                            <img src="assets/icons/battery.svg" alt="">
+                                            <span>SOLAR</span>
+                                        </li>
+                                        <li class="p-4">
+                                            <img src="assets/icons/nut.svg" alt="">
+                                            <span>FOCOS</span>
+                                        </li>
+                                        <li class="p-4">
+                                            <img src="assets/icons/beacons.svg"alt="">
+                                            <span>SEGURIDAD</span>
+                                        </li>
+                                        <li class="p-4">
+                                            <img src="assets/icons/solar.svg" alt="">
+                                            <span>BALIZAS</span>
+                                        </li>
+                                        <li class="p-4">
+                                            <img src="assets/icons/lightning.svg" alt="">
+                                            <span>SEGURIDAD</span>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <div class="contenido">
+                                <router-outlet> </router-outlet>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+              
+            </main>
+        </div>
+    </div>
+    
+
+</div><!--/wrap-->
