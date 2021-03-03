@@ -90,6 +90,9 @@ ul.menu {
         margin-top: 0;
     }
 }
+.border-radius-right {
+    border-radius:0px 0px 0px 0px;
+}
 
 .boxButtons {
     display: block;
@@ -99,6 +102,13 @@ ul.menu {
         display: block;
     }
 }
+
+
+
+
+
+
+
 
 .boxCarro {
     border-radius:5px;
@@ -163,7 +173,16 @@ ul.menu {
             cursor: pointer;
             img {
                 width: 100%;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transition: .2s ease-in-out;
+                transition: .2s ease-in-out;
+                &:hover {
+                    -webkit-transform: scale(1.15);
+                    transform: scale(1.15);
+                }
             }
+           
         }
         .texts {
           
