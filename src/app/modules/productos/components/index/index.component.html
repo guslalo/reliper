@@ -59,7 +59,7 @@
                 </div>
                 <div class="texts">
                     <div class="price"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">${{item.price_1}}</div>
-                    <div class="description"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">
+                    <div class="description text-truncate"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">
                        {{item.name}}
                     </div>
                     <div class="add2">
@@ -76,9 +76,6 @@
        
     </div>
     </ng-container>
-  
-    
-    
 </div>
 
 
