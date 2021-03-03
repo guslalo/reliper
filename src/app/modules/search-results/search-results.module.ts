@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProductosRoutingModule } from './productos-routing.module';
+import { SearchResultsRoutingModule } from './search-results-routing.module';
 import { IndexComponent } from './components/index/index.component';
 import { SharedModule } from './../shared/shared.module';
 
@@ -10,9 +10,11 @@ import { SharedModule } from './../shared/shared.module';
   declarations: [IndexComponent],
   imports: [
     CommonModule,
-    ProductosRoutingModule,
-    ProductosRoutingModule,
+    SearchResultsRoutingModule,
+    SharedModule
+  ],
+  exports: [
     SharedModule
   ]
 })
-export class ProductosModule { }
+export class SearchResultsModule { }

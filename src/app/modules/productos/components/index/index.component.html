@@ -1,6 +1,3 @@
-
-
-
 <div class="row">
     <div class="col-12 mb-4">
         <div class="banner">
@@ -48,8 +45,7 @@
     </div>
 </div>
 
-
-
+<!--products-->
 <div class="row products" *ngIf="products" >
     <ng-container *ngFor="let item of products">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -76,7 +72,7 @@
        
     </div>
     </ng-container>
-</div>
+</div><!--/products-->
 
 
   
@@ -99,19 +95,21 @@
             <div class="col-12 col-md-6 ficha">
                 <h3 class="mt-5">{{product.name}}</h3>
                 <span class="mb-4">COD: {{product.sku}}</span>
-                <div class="boxScroll overflow-auto" [innerHtml]="product.description  | safe:'html'">
-                </div>
-
-
+                <!--description-->
+                <div class="boxScroll overflow-auto" [innerHtml]="product.description  | safe:'html'"></div><!--/description-->
                 <div class="texts">
                     <div class="row">
                         <div class="col-6">
                             <div class="price2 mt-4">Precio: ${{product.price_1}}</div>
                         </div>
                         <div class="col-6">
-                            <div class="add">
-                                <span>Agregar</span>
-                                <button class="btn btn-secondary float-right">+</button>
+                            <div class="add2">
+                              <ngx-number-spinner
+                        
+                              [value]="0"
+                              (change)="change($event)" 
+                              [min]="0">
+                              </ngx-number-spinner>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../../../../services/global.service'
+import { ApiService } from '../../../../services/api.service'
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from "@angular/router"
+
 declare var $:any
 
 @Component({
@@ -7,11 +12,33 @@ declare var $:any
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  public formSearch:FormGroup;
 
-  constructor() { }
+  constructor(
+    public apiService:ApiService,
+    public globalService:GlobalService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.menuStick();
+    this.formSearch = new FormGroup({
+      search: new FormControl('')
+    });
+  }
+
+  search(){
+    console.log(this.formSearch.controls.search.value)
+    this.apiService.searchProducts(this.formSearch.controls.search.value).subscribe(
+      data => {
+        this.globalService.searchResults = data;
+        this.router.navigate(['/resultados-de-busqueda'])
+        console.log(data)
+      }, 
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   menuStick() {

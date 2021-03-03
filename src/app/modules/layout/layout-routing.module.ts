@@ -23,6 +23,16 @@ const routes: Routes = [
         loadChildren: () => import('../../modules/producto/producto.module').then((m) => m.ProductoModule),
       }
     ]
+  },
+  {
+    path: 'resultados-de-busqueda',
+    component: IndexComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('../../modules/search-results/search-results.module').then((m) => m.SearchResultsModule),
+      }
+    ]
   }
 ];
 

@@ -15,7 +15,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getCategories(id?): Observable<any> {
-  
     if(id){ 
       const httpOptions = {
         headers: new HttpHeaders({
@@ -32,7 +31,6 @@ export class ApiService {
       return this.http.get<any>(environment.baseUrl + this.categoryUrl, httpOptions );
     }
   }
-
 
   getProducts(categories_id?, id? ): Observable<any> {
     if(categories_id) {
@@ -61,4 +59,14 @@ export class ApiService {
   
   }
 
+  searchProducts(search ): Observable<any> {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Authorization': 'Token 9c7f98ae739a61ba50d497014695e954ea5e5049'
+        })
+      };
+      return this.http.get<any>(environment.baseUrl + this.productsUrl + 
+        '?search='+ search,
+        httpOptions);
+    }
 }
