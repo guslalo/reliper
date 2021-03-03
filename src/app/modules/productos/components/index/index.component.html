@@ -100,7 +100,7 @@
                 <h3 class="mt-5">{{product.name}}</h3>
                 <span class="mb-4">COD: {{product.sku}}</span>
                 <div class="boxScroll overflow-auto">
-                    <p>{{product.description}}</p>
+                    <p>{{product.description  | safe:'html'}}</p>
                 </div>
 
 
