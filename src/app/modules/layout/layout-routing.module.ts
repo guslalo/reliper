@@ -16,7 +16,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'producto',
+    path: 'categoria/:id',
     component: IndexComponent,
     children: [
       {

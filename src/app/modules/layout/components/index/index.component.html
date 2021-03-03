@@ -8,21 +8,14 @@
                         <img class="pt-1" src="assets/logo.svg">
                     </a>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-md-4">
                     <div class="input-group mt-2">
                         <input type="text" class="form-control bg-grey font-size-13 height-45" placeholder="Busca tus productos aquí" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-primary pl-4 pr-4 font-size-13 height-45" type="button" id="button-addon2">Buscar</button>
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="boxCarro mt-3 float-right">
-                        <div class="boxTotal mt-1">
-                            <span class="font-size-13">$229.990</span>
-                        </div>
-                        <div class="total mt-1">
-                            <span class="font-size-13">4 items</span>
-                        </div>
-                    </div>
+                    <app-cart></app-cart>
                 </div>
             </div>
         </div>
@@ -34,69 +27,10 @@
                 <div class="container-fluid mt-5">
                     <div class="row">
                         <div class="col-12 col-md-3">
-                            <div class="sideNav">
-                                <select class="custom-select">
-                                    <option selected>FILTRO POR CATEGORÍAS</option>
-                                    <option value="1">Categoria ejemplo</option>
-                                    <option value="2">Categoria ejemplo</option>
-                                    <option value="3">Categoria ejemplo</option>
-                                  </select>
-                                  
-                            </div>
 
                             <div class="row">
                                 <div class="col-12">
-                                    <ul class="menu mt-4">
-                                        <li >
-                                            <a routerLink="producto" class="p-4 h-100" style="display: block;">
-                                                <img src="assets/icons/safety.svg" alt="">
-                                                <span>SEGURIDAD</span>
-                                            </a>
-                                        </li>
-                                        <li >
-                                            <a routerLink="producto" class="p-3 h-100" style="display: block;">
-                                                <img src="assets/icons/flashlight.svg" alt="">
-                                                <span>LINTERNAS</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a routerLink="producto" class="p-4 h-100" style="display: block;">
-                                                <img src="assets/icons/tools.svg" alt="">
-                                                <span>HERRAMIENTAS  </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a routerLink="producto" class="p-4 h-100" style="display: block;">
-                                                <img src="assets/icons/battery.svg" alt="">
-                                                <span>SOLAR</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a routerLink="producto" class="p-4 h-100" style="display: block;">
-                                                <img src="assets/icons/nut.svg" alt="">
-                                                <span>FOCOS</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a routerLink="producto" class="p-4 h-100" style="display: block;">
-                                                <img src="assets/icons/beacons.svg"alt="">
-                                                <span>SEGURIDAD</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a routerLink="producto" class="p-4 h-100" style="display: block;">
-                                                <img src="assets/icons/solar.svg" alt="">
-                                                <span>BALIZAS</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a routerLink="producto" class="p-4 h-100" style="display: block;">
-                                                <img src="assets/icons/lightning.svg" alt="">
-                                                <span>SEGURIDAD</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    
+                                    <app-menu></app-menu>                           
                                 </div>
                             </div>
                         </div>

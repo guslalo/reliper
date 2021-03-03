@@ -47,8 +47,20 @@ ul.menu {
         position: relative;
         transition: 0.3s;
         cursor: pointer;
+      
+        &:hover {
+            i {
+                animation: bounceIn; /* referring directly to the animation's @keyframe declaration */
+                animation-duration:0.5s;
+            }
+        }
         img {
             margin-top: 15px;
+        }
+        i {
+            font-size: 50px;
+            color: #0642B0;
+           
         }
         span {
             position: absolute;
@@ -63,6 +75,18 @@ ul.menu {
         &:hover {
             background: #f2f2f2;
         }
+    }
+    li:last-child {
+        margin-bottom: 30px;
+    }
+}
+
+.boxButtons {
+    display: block;
+    margin-top: 50px;
+    button {
+        margin: 0 auto;
+        display: block;
     }
 }
 
@@ -94,6 +118,12 @@ ul.menu {
 }
 .boxScroll {
     height: 300px;
+}
+
+.detailsProduct {
+    img {
+        width: 100%;
+    }
 }
 
 
@@ -168,4 +198,24 @@ ul.menu {
     background: #EFEFEF;
     height: 38px;
     width: 100%;
+}
+
+.add2 {
+    margin-top: 20px;
+    span {
+        line-height: 38px;
+        display: inline-block;
+        width: 65%;
+        text-align: center;
+        color:#6E6D6D;
+        font-size: 14px;
+    }
+    height: 38px;
+    width: 100%;
+}
+.horizontal-wrapper button:last-child, .horizontal-wrapper button:first-child  { 
+    border-radius: 0 !important;
+}
+.horizontal-wrapper{
+    border-radius: 0.25rem !important;
 }
