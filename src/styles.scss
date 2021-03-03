@@ -211,8 +211,10 @@ ul.menu {
             cursor: pointer;
             max-height: 180px;
             text-align: center;
+            overflow: hidden;
             img {
                 width: 100%;
+                height: 100%;
                 -webkit-transform: scale(1);
                 transform: scale(1);
                 -webkit-transition: .2s ease-in-out;
