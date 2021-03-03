@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductosRoutingModule } from './productos-routing.module';
 import { IndexComponent } from './components/index/index.component';
 import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,9 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
     CommonModule,
     ProductosRoutingModule,
     NgxNumberSpinnerModule,
-    ProductosRoutingModule
+    ProductosRoutingModule,
+    ReactiveFormsModule, 
+    FormsModule 
   ]
 })
 export class ProductosModule { }

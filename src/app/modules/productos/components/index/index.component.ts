@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../../services/api.service'
 import { CartService } from './../../../../services/cart.service'
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-index',
@@ -12,16 +13,21 @@ export class IndexComponent implements OnInit {
   public products = [ ]
   public product = { }
   public totalPrice:number
+  public cartItem:number;
   public productObject:any;
+  public formProduct:FormGroup
 
   constructor( 
     public apiService:ApiService,
-    public cartService:CartService
+    public cartService:CartService,
+    private fb: FormBuilder
     ) { }
 
   change(value): void {
     console.log(value)
-    this.totalPrice = value
+    this.cartItem = value
+    this.totalPrice = this.cartItem + value
+    console.log(value)
   }
   dataChanged(event) {
     this.productObject = event
@@ -30,6 +36,11 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
+    this.formProduct = this.fb.group({
+      name:'name',
+      cant:1,
+      price:'price'
+    });
   }
 
   getProducts(id?){
