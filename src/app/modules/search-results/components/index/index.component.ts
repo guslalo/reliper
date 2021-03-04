@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../../../services/global.service'
+import { ApiService } from '../../../../services/api.service'
+import { CartService } from './../../../../services/cart.service'
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 
 
 @Component({
@@ -11,7 +15,9 @@ export class IndexComponent implements OnInit {
   
   public products = [ ]
   public product = { }
-
+  public totalPrice:number
+  public cartItem:number;
+  public productObject:any;
   constructor(public globalService:GlobalService) { }
 
   ngOnInit(): void {
@@ -22,5 +28,11 @@ export class IndexComponent implements OnInit {
   change(value): void {
     console.log(value)
   }
+
+  getDetails(id?){
+    this.product = this.products.find(x => x.id === id);
+    console.log(this.product)
+  }
+
 
 }
