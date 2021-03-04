@@ -55,8 +55,8 @@ export class IndexComponent implements OnInit {
     )
   }
 
-  getDetails(id?){
-    this.product = this.products.find(x => x.id === id);
+  getDetails(item){
+    this.product = item
     console.log(this.product)
   }
 
