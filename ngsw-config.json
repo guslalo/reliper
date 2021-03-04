@@ -26,5 +26,17 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+    "name": "reliper-api",
+    "urls": ["https://sms-admin.tmsgo.cl/"],
+    "cacheConfig": {
+      "strategy": "freshness",
+      "maxSize": 300,
+      "maxAge": "1h",
+      "timeout": "5s"
+      }
+    }
   ]
 }
