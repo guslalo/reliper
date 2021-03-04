@@ -1,0 +1,24 @@
+.social {
+    position: fixed;
+    bottom: 150px;
+    right: 0px;
+    width: 40px;
+    height: auto;
+    background: white;
+    ul {
+        margin: 0px !important;
+        list-style: none;
+        li {
+            text-align: center;
+            
+            a {
+                display: block;
+                height: 40px;
+                line-height: 40px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
