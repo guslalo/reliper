@@ -8,6 +8,7 @@ import { GlobalService } from '../../../../services/global.service'
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
+  
   public products = [ ]
   public product = { }
 

@@ -4,8 +4,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SafePipe } from './../../pipes/safe.pipe';
 import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
 
-
-
 @NgModule({
   declarations: [
     SafePipe

@@ -1,8 +1,8 @@
 {
   "name": "reliper",
   "short_name": "reliper",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#FBE503",
+  "background_color": "#FBE503",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
