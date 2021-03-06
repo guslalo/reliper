@@ -13,8 +13,31 @@ html {
 
 header {
     height: 94px;
-    background: white;
+    background: #1e4394 !important;
    
+}
+
+.wrapFlex {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+;
+    header {
+        height: auto;
+    }
+    main {
+        height: auto;
+    }
+    footer {
+        background: #014397 ;
+        color: #fff;
+        ul {
+            li {
+                list-style: none;
+            }
+        }
+    }
 }
 
 .header {
@@ -24,15 +47,17 @@ header {
         -o-transition: margin-top 1s ease-in-out;
         transition: margin-top 1s ease-in-out;
         overflow:hidden;
-        height:84px;
+        height:82px;
         position: fixed;
         width: 100%;
-        padding: 0 20px;
+        padding: 0 0px 0px 20px;
         left: 0px;
         z-index: 99;
         box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
         .boxCarro {
-            margin-top: 5px;
+            position: relative;
+            top: 3px;
+            margin-bottom: 0 !important;
             padding: 0px 10px;
             .boxTotal span {
                 padding: 2px 10px;
@@ -43,6 +68,7 @@ header {
         }
         .buscador {
             margin-top: 13px !important;
+           
         }
         .logo {
             margin-top:9px;
@@ -62,6 +88,14 @@ header {
 .bg-grey {
     background:#F1F1F1;
     
+}
+
+.btn {
+    &.btn-primary {
+     
+            background: #2870ce !important;
+        
+    }
 }
 
 main {
@@ -151,7 +185,7 @@ ul.menu {
     padding: 5px 20px;
     display: inline-block;
     height: cal(60px - 16px);
-    background:#0642B0;
+    background:#2870ce;
     text-align: center;
     .total {
         color: #fff;
