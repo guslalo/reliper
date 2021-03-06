@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
   menuStick() {
     $(window).bind('scroll', function () {
       if ( $(window).scrollTop() > 54 ) {
-        $(".header").stop().animate({'top':'-22px'}, 80, 'linear', function(){
+        $(".header").stop().animate({'top':'-23px'}, 80, 'linear', function(){
          
         }); $('.header').addClass('fixed');
        
