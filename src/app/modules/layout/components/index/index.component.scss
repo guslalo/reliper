@@ -23,3 +23,26 @@
         }
     }
 }
+
+.add2 {
+    margin-top: 20px;
+    span {
+        line-height: 38px;
+        display: inline-block;
+        width: 65%;
+        text-align: center;
+        color:#6E6D6D;
+        font-size: 14px;
+    }
+    height: 38px;
+    width: 100%;
+    button {
+        background: #FBE503; 
+     }
+    button:disabled,
+    button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    }
+}

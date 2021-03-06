@@ -45,14 +45,11 @@ export class HeaderComponent implements OnInit {
     $(window).bind('scroll', function () {
       if ( $(window).scrollTop() > 54 ) {
         $(".header").stop().animate({'top':'-23px'}, 80, 'linear', function(){
-         
         }); $('.header').addClass('fixed');
        
       } else {
         $(".header").stop().animate({'top':'0px'},80, 'linear', function(){
-         
-        }); $('.header').removeClass('fixed');
-      
+        }); $('.header').removeClass('fixed');  
       }
     });
   }
