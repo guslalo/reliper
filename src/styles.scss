@@ -55,6 +55,7 @@ header {
         z-index: 99;
         box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
         .boxCarro {
+            cursor: pointer;
             position: relative;
             top: 3px;
             margin-bottom: 0 !important;
@@ -94,9 +95,31 @@ header {
     &.btn-primary {
      
             background: #2870ce !important;
+            border-color: #2870ce ;
         
     }
 }
+.m-auto {
+    margin: 0 auto;
+}
+
+#cotizadorModal {
+    .modal-dialog { 
+        width: 30%; max-width: 450px;
+        position: absolute;
+        right: 25px;
+        bottom: 0;
+    }
+    .boxItems {
+        max-height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .item {
+            padding:20px 0px 20px 0px;
+            border-bottom: 1px solid #F1F1F1;
+        }
+    }
+ }
 
 main {
     width: 100%;
@@ -181,6 +204,7 @@ ul.menu {
 
 
 .boxCarro {
+    cursor: pointer;
     border-radius:5px;
     padding: 5px 20px;
     display: inline-block;
