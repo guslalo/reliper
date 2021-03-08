@@ -369,4 +369,12 @@ ul.menu {
             text-align:left !important ;
         }
     }
+    .boxScroll {
+        height: 150px;
+    }
+    #cotizadorModal .modal-dialog {
+        width: 95%;
+        right: inherit;
+    }
+    
 }
