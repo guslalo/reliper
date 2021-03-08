@@ -1,28 +1,4 @@
-.social {
- display: inline-block;
-    right: 0px;
-    width: auto;
-    height: auto;
-    ul {
-        margin: 0px !important;
-        list-style: none;
-        li {
-            text-align: center;
-            display: inline-block;
-            a {
-                display: block;
-                width: 40px;
-                height: 40px;
-                line-height: 40px;
-                color: #fff;
-                font-size: 24px;
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-}
+
 
 .add2 {
     margin-top: 20px;
