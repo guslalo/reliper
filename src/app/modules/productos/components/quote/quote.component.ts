@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { QuotationService } from 'src/app/services/quotation.service';
 import * as _ from 'lodash';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-quote',
@@ -31,8 +32,14 @@ export class QuoteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
+  /**
+   * Add elements to cart
+   * @param id 
+   * @param value 
+   */
   change(id:any, value:any): void {
     this.quotation.addItem(id, value);
   }

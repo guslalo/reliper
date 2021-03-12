@@ -47,6 +47,9 @@ export class QuotationService {
     this.updateQList()
   }
 
+  /**
+   * Update quotation list (merge)
+   */
   updateQList(){
     let newList = []
     // get existing data
@@ -87,8 +90,6 @@ export class QuotationService {
         }catch(ex){}
       })
       this.totalPrice.next(totalPrice)
-      
-      console.log('merge', this.quotedProductsArray)
     }      
   }
 }

@@ -14,6 +14,11 @@ export class ItemDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Add elements to cart
+   * @param id 
+   * @param value 
+   */
   change(id:any, value:any): void {
     this.quotation.addItem(id, value);
   }

@@ -115,7 +115,9 @@
           <app-quote></app-quote>
       </div>
       <div class="modal-footer text-center">
-          <button type="button" class="btn btn-primary  m-auto" data-dismiss="modal">
+          <input type="text" class="form-control bg-grey font-size-13 height-45" 
+          placeholder="Ingresa tu email" [formControl]="email">
+          <button [disabled]="!email.valid" type="button" class="btn btn-primary  m-auto" data-dismiss="modal">
             Contactar con ventas
           </button>
       </div>

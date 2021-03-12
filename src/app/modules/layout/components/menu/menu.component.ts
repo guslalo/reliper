@@ -30,7 +30,11 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void  {}
 
-  getChilds(item){
+  /**
+   * Get category childs
+   * @param item 
+   */
+  getChilds(item: any){
     this.showPatern = false
     this.showChild = true  
     this.categoryActive = item
@@ -38,6 +42,9 @@ export class MenuComponent implements OnInit {
     this.router.navigate([''], { queryParams: { categories: item.name} });
   }
 
+  /**
+   * back to patern categories
+   */
   back(){
     this.showPatern = true
     this.showChild = false 
