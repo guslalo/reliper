@@ -3,7 +3,7 @@ $primary:#0642B0;
 
 @import "bootstrap";
 body {
-    
+    font-size: 0.8rem;
 }
 html {
     background: #eaeaea;
@@ -69,7 +69,6 @@ header {
         }
         .buscador {
             margin-top: 13px !important;
-           
         }
         .logo {
             margin-top:9px;
@@ -197,12 +196,6 @@ ul.menu {
 }
 
 
-
-
-
-
-
-
 .boxCarro {
     cursor: pointer;
     border-radius:5px;
@@ -253,6 +246,7 @@ ul.menu {
     }
 }
 .products {
+    min-height: 300px;
     .product {
         display: inline-block;
         background: #fff;
@@ -358,3 +352,9 @@ ul.menu {
 .horizontal-wrapper{
     border-radius: 0.25rem !important;
 }
+
+ngx-number-spinner{
+    zoom: 0.85;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

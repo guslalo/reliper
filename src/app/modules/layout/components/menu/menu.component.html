@@ -1,25 +1,35 @@
-   <!--menu-->
-   <ul class="menu" *ngIf="menuCategory">
-    <ng-container *ngIf="menuCategory && menuCategory.length == 1">
-        <a onclick='history.back()' class="btn btn-link btn-block text-left mb-4"> < volver </a>
-    </ng-container>
-    <ng-container *ngFor="let item of menuCategory">
+<!--menu-->
+<ul class="menu" *ngIf="showPatern">
+    <ng-container  *ngFor="let item of menuCategory">
         <li id="{{item.id}}">
-            <a routerLink="/categoria/{{item.id}}" class="p-4 h-100" style="display: block;">
+            <a (click)="getChilds(item)" class="p-4 h-100" style="display: block;" >
                 <i class="material-icons">
                     {{item.style}}
                 </i>
                 <span>{{item.name}}</span>
             </a>
-        </li>
-        <ng-container *ngIf="menuCategoryChilds && menuCategoryChilds.length > 0">
-            <span class="boxButtons">
-                <ng-container *ngFor="let child of menuCategoryChilds">
-                    <button  type="button" class="btn btn-outline-dark btn-block w-50">{{child.name}}</button>
-                </ng-container>
-            </span>
-        </ng-container>
-    
-        
+        </li>   
     </ng-container> 
-</ul><!--/menu-->   
+</ul><!--/menu-->  
+<ng-container *ngIf="showChild">
+    <a (click)='back()' class="btn btn-link btn-block text-left mb-4"> < volver </a>
+</ng-container>
+
+<ul class="menu" *ngIf="categoryActive">
+    <li id="{{categoryActive.id}}">
+        <a class="p-4 h-100" style="display: block;" (click)="getChilds(categoryActive)">
+            <i class="material-icons">
+                {{categoryActive.style}}
+            </i>
+            <span>{{categoryActive.name}}</span>
+        </a>
+    </li>  
+</ul>
+
+<ng-container *ngIf="showChild">
+    <span class="boxButtons">
+        <ng-container *ngFor="let child of categoryActive?.childs">
+            <button (click)="getChilds(child)"  type="button" class="btn btn-outline-dark btn-block w-50">{{child.name}}</button>
+        </ng-container>
+    </span>
+</ng-container>

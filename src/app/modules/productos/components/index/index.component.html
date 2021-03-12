@@ -1,3 +1,4 @@
+<!-- Slide -->
 <div class="row">
     <div class="col-12 mb-4">
         <div class="banner">
@@ -46,23 +47,24 @@
 </div>
 
 <!--products-->
-<div class="row products" *ngIf="products" >
-    <ng-container *ngFor="let item of products">
+<div class="row products" *ngIf="products_filter" >
+    <ng-container *ngFor="let item of products_filter">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="product p-4" >
-                <div class="img" (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">
+                <div class="img" (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
                     <img [src]="item.image">
                 </div>
                 <div class="texts">
-                    <div class="price"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">${{item.price_1}}</div>
-                    <div class="description text-truncate"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">
+                    <div class="price"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
+                      ${{item.price_1 | safe:'number_format'}}
+                    </div>
+                    <div class="description text-truncate"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
                        {{item.name}}
                     </div>
                     <div class="add2">
                         <ngx-number-spinner
-                        
-                        [value]="0"
-                        (change)="change($event)" 
+                        [value]="item.id | safe:'quotation'"
+                        (change)="change(item.id, $event)" 
                         [min]="0">
                         </ngx-number-spinner>
                     </div>
@@ -76,7 +78,7 @@
 
 
   
-  <!-- Modal -->
+  <!-- Item Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content detailsProduct">
@@ -86,40 +88,10 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body" *ngIf="product">
-            <div class="container-fluid">
-          <div class="row">
-            <div class="col-12 col-md-6">
-                <img [src]='product.image'>
-            </div>
-            <div class="col-12 col-md-6 ficha">
-                <h3 class="mt-5">{{product.name}}</h3>
-                <span class="mb-4">COD: {{product.sku}}</span>
-                <!--description-->
-                <div class="boxScroll overflow-auto" [innerHtml]="product.description  | safe:'html'"></div><!--/description-->
-                <div class="texts">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="price2 mt-4">Precio: ${{product.price_1}}</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="add2">
-                              <ngx-number-spinner
-                        
-                              [value]="0"
-                              (change)="change($event)" 
-                              [min]="0">
-                              </ngx-number-spinner>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 
-                    
-
-            </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <app-item-detail [product]="product"></app-item-detail>
           </div>
-        </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
@@ -128,4 +100,26 @@
       </div>
     </div>
   </div>
+
+   <!-- Quotation Modal -->
+ <div class="modal fade" id="cotizadorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content detailsProduct">
+      <div class="modal-header d-none">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <app-quote></app-quote>
+      </div>
+      <div class="modal-footer text-center">
+          <button type="button" class="btn btn-primary  m-auto" data-dismiss="modal">
+            Contactar con ventas
+          </button>
+      </div>
+    </div>
+  </div>
+</div>
 

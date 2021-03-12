@@ -1,9 +1,9 @@
 <div class="boxCarro mt-2 mb-2 float-right" data-toggle="modal" data-target="#cotizadorModal">
     <div class="boxTotal mt-1">
-        <span class="font-size-13">${{totalPrice}}</span>
+        <span class="font-size-13">${{totalPrice | safe:'number_format'}}</span>
     </div>
     <div class="total mt-1">
-        <span class="font-size-13">4 items</span>
+        <span class="font-size-13">{{ quantityItem }} items</span>
     </div>
 </div>
 

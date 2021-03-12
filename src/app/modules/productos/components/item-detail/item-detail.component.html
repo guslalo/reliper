@@ -1,0 +1,33 @@
+<div class="row" *ngIf="product">
+    <div class="col-12 col-md-6">
+        <img [src]='product.image'>
+    </div>
+    <div class="col-12 col-md-6 ficha">
+        <h3 class="mt-5">{{product.name}}</h3>
+        <span class="mb-4">COD: {{product.sku}}</span>
+        <!--description-->
+        <div class="boxScroll overflow-auto" [innerHtml]="product.description  | safe:'html'"></div><!--/description-->
+        <mat-chip-list aria-label="categories">
+            <mat-chip>One fish</mat-chip>
+            <mat-chip>Two fish</mat-chip>
+            <mat-chip color="primary" selected>Primary fish</mat-chip>
+            <mat-chip color="accent" selected>Accent fish</mat-chip>
+          </mat-chip-list>
+        <div class="texts">
+            <div class="row">
+                <div class="col-6">
+                    <div class="price2 mt-4">Precio: ${{product.price_1}}</div>
+                </div>
+                <div class="col-6">
+                    <div class="add2">
+                      <ngx-number-spinner
+                        [value]="product.id | safe:'quotation'"
+                        (change)="change(product.id, $event)" 
+                        [min]="0">
+                        </ngx-number-spinner>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

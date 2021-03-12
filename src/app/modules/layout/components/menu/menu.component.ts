@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../../services/api.service'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Auth } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,45 +13,35 @@ export class MenuComponent implements OnInit {
   public menuCategory = []
   public menuCategoryChilds = []
   public idCategory:any;
+  public showPatern:boolean = true;
+  public showChild:boolean = false;
+  public categoryActive:any;
 
   constructor(
     public apiService:ApiService,
-    private route: ActivatedRoute,
-    ) { }
+    private auth:Auth,
+    private router: Router
+    ) {
+      // categories listener
+      this.auth.categories.subscribe(categories => {
+        this.menuCategory = categories;
+      })
+    }
 
-  ngOnInit(): void  {
-    this.routerActive()
+  ngOnInit(): void  {}
+
+  getChilds(item){
+    this.showPatern = false
+    this.showChild = true  
+    this.categoryActive = item
+    console.log(this.showPatern, this.showChild,  this.categoryActive)
+    this.router.navigate([''], { queryParams: { categories: item.name} });
   }
 
-  ngOnChanges(){
-
+  back(){
+    this.showPatern = true
+    this.showChild = false 
+    this.categoryActive = false
+    this.router.navigate([''], { queryParams: {} });
   }
-
-  routerActive(){
-    this.route.params.subscribe((params) => {
-      this.idCategory = params.id
-      this.getCategories(params.id);
-    });
-  }
-
-  
-  getCategories(id?){
-    this.menuCategory = [ ];
-    this.apiService.getCategories(id).subscribe(
-      data => {
-        console.log(data)
-        if(data.length > 0) {
-          this.menuCategory = data
-        } else {
-          this.menuCategory.push(data);
-          this.menuCategoryChilds = this.menuCategory[0].childs
-          console.log(this.menuCategory)
-        }
-      },
-      error => {
-        console.log(error)
-      }
-    )
-  }
-
 }

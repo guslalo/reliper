@@ -8,7 +8,7 @@
         <div class="row">
                 <div class="container-fluid mt-4">
                     <div class="row">
-                        <div class="col-12 col-md-3 pr-0">
+                        <div class="col-12 col-md-3 pr-0 menu-container">
 
                             <div class="row">
                                 <div class="col-12">
@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-9">
+                        <div class="col-12 col-md-9 right-panel">
                             <div class="contenido">
                                 <router-outlet> </router-outlet>
                             </div>
@@ -65,135 +65,7 @@
     </footer><!--footer-->
 </div>
 
- <!-- Modal -->
- <div class="modal fade" id="cotizadorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content detailsProduct">
-        <div class="modal-header d-none">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="container-fluid">
-   
-                <p>4 ITEMS</p>
-                <div class="boxItems">
-                    <div class="item">
-                        <div class="row"> 
-                            <div class="col-4">
-                                
-                                <div class="boxImg">
-                                    <img src="assets/products/image-2.png">
-                                </div>
-                            </div>
-                            <div class="col-5">
-                                <p>Linterna</p>
-                                <ngx-number-spinner
-                                
-                                [value]="0"
-                                (change)="change($event)" 
-                                [min]="0">
-                                </ngx-number-spinner>
 
-                            
-                            </div>
-                            <div class="col-3">
-                                <div class="price">
-                                    $15.990
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" >
-                        <div class="row"> 
-                            <div class="col-4">
-                                
-                                <div class="boxImg">
-                                    <img src="assets/products/image-2.png">
-                                </div>
-                            </div>
-                            <div class="col-5">
-                                <p>Linterna</p>
-                                <ngx-number-spinner
-                                
-                                [value]="0"
-                                (change)="change($event)" 
-                                [min]="0">
-                                </ngx-number-spinner>
 
-                            
-                            </div>
-                            <div class="col-3">
-                                <div class="price">
-                                    $15.990
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row"> 
-                            <div class="col-4">
-                                
-                                <div class="boxImg">
-                                    <img src="assets/products/image-2.png">
-                                </div>
-                            </div>
-                            <div class="col-5">
-                                <p>Linterna</p>
-                                <ngx-number-spinner
-                                
-                                [value]="0"
-                                (change)="change($event)" 
-                                [min]="0">
-                                </ngx-number-spinner>
-
-                            
-                            </div>
-                            <div class="col-3">
-                                <div class="price">
-                                    $15.990
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row"> 
-                            <div class="col-4">
-                                
-                                <div class="boxImg">
-                                    <img src="assets/products/image-2.png">
-                                </div>
-                            </div>
-                            <div class="col-5">
-                                <p>Linterna</p>
-                                <ngx-number-spinner
-                                
-                                [value]="0"
-                                (change)="change($event)" 
-                                [min]="0">
-                                </ngx-number-spinner>
-
-                            
-                            </div>
-                            <div class="col-3">
-                                <div class="price">
-                                    $15.990
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-right mt-4">Total: <b>$469.990</b></p>
-            </div>
-        <div class="modal-footer text-center">
-            <button type="button" class="btn btn-primary  m-auto" data-dismiss="modal">
-              Contactar con ventas
-            </button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 

@@ -1,20 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from './../../../../services/cart.service'
+import { GlobalService } from 'src/app/services/global.service';
+import { QuotationService } from '../../../../services/quotation.service'
+import * as _ from 'lodash';
+import { Auth } from 'src/app/services/auth.service';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
-  selector: 'app-cart',
+  selector: 'app-quotation',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  public totalPrice:string;
 
-  constructor(public cartService:CartService) { }
+  quantityItem: number = 0;
+  public totalPrice:number = 0;
 
-  ngOnInit(): void {
+  constructor(public quotation:QuotationService, 
+              public auth:Auth) {
 
-    this.totalPrice = this.cartService.totalCartPrice
-    
+      // quantity item listener
+      this.quotation.quantityItem.subscribe((item) => {
+        this.quantityItem = item
+      })
+      // total price item listener
+      this.quotation.totalPrice.subscribe((item) => {
+        this.totalPrice = item
+      })
   }
+
+  ngOnInit(): void {}
+
+  
 
 }
