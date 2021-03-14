@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
+import { QuotationService } from 'src/app/services/quotation.service';
 
 declare var $:any
 
@@ -10,17 +12,6 @@ declare var $:any
 
 
 export class IndexComponent implements OnInit {
-  public menuCategory = []
-
-  constructor() { }
-
-  change(value): void {
-    console.log(value)
-  }
-  ngOnInit(): void {
-        
-  }
-
-
-
+  constructor() {}
+  ngOnInit(): void {}
 }

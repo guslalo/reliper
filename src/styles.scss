@@ -3,7 +3,7 @@ $primary:#0642B0;
 
 @import "bootstrap";
 body {
-    
+    font-size: 0.8rem;
 }
 html {
     background: #eaeaea;
@@ -69,7 +69,6 @@ header {
         }
         .buscador {
             margin-top: 13px !important;
-           
         }
         .logo {
             margin-top:9px;
@@ -197,12 +196,6 @@ ul.menu {
 }
 
 
-
-
-
-
-
-
 .boxCarro {
     cursor: pointer;
     border-radius:5px;
@@ -253,6 +246,7 @@ ul.menu {
     }
 }
 .products {
+    min-height: 300px;
     .product {
         display: inline-block;
         background: #fff;
@@ -376,5 +370,7 @@ ul.menu {
         width: 95%;
         right: inherit;
     }
-    
+}
+ngx-number-spinner{
+    zoom: 0.85;
 }
