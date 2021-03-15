@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import * as _ from 'lodash';
 //import * as moment from 'moment';
 //import { Utils } from '../utils/util';
 
@@ -20,6 +21,8 @@ export class SafePipe implements PipeTransform {
       case 'url': return this.sanitizer.bypassSecurityTrustUrl(value);
       //case 'datetime': return this.getDateFormat(value, 'DD/MM/YYYY HH:mm');
       //case 'humans': return this.getDateFormat(value, 'humans');
+      case 'number_format': return this.numberFormat(value);
+      case 'quotation': return this.getQuotationValue(value);
       case 'storage': return this.getImageStorage(value);
       case 'percent': return String(value) + '%';
       case 'resourceUrl': return this.sanitizer.bypassSecurityTrustResourceUrl(value);
@@ -52,5 +55,30 @@ export class SafePipe implements PipeTransform {
     // console.log('pipe', filename);
     // return environment.filePath + filename;
     return 'file';
+  }
+
+  // 
+  getQuotationValue(id: any){
+    let qlist: any = JSON.parse(String(localStorage.getItem('qlist')));
+    if (qlist){
+      // check exist in list
+      let match = _.find(qlist, {'id': id})
+      if (match){
+        return match['quantity']
+      }
+    }
+    return 0;
+  }
+
+  numberFormat(number: any){
+    
+    let result = number;
+    try{
+      let number_str = Number(number).toFixed(0);
+      result = new Intl.NumberFormat('de-DE').format(Number(number_str));
+    }catch(e){
+      console.log('ex', e)
+    }
+    return result;
   }
 }

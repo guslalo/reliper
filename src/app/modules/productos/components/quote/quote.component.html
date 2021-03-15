@@ -1,0 +1,28 @@
+<div *ngIf="quotedProducts">
+    <p><b>{{quantityItem}}</b> ITEMS</p>
+    <div class="boxItems">
+        <div class="item" *ngFor="let item of quotedProducts">
+            <div class="row"> 
+                <div class="col-3">
+                    <div class="boxImg">
+                        <img [src]="item.image">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <p>{{item.name}}</p>
+                    <ngx-number-spinner
+                    [value]="item.id | safe:'quotation'"
+                    (change)="change(item.id, $event)" 
+                    [min]="0">
+                    </ngx-number-spinner>
+                </div>
+                <div class="col-3">
+                    <div class="price">
+                        <b>${{item.price_1 | safe:'number_format'}}</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-right mt-4">Total: <b>${{totalPrice | safe:'number_format'}}</b></p>
+</div>

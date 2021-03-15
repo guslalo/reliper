@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../../services/api.service'
-import { CartService } from './../../../../services/cart.service'
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { QuotationService } from '../../../../services/quotation.service'
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Auth } from 'src/app/services/auth.service';
+import * as _ from 'lodash';
+import { ActivatedRoute } from '@angular/router';
+import { combineLatest } from 'rxjs';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-index',
@@ -10,54 +15,93 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 })
 
 export class IndexComponent implements OnInit {
-  public products = [ ]
-  public product = { }
+  public products_all = []
+  public products_filter = []
+  public product = {}
+  paramsFilter = {}
   public totalPrice:number
-  public cartItem:number;
-  public productObject:any;
-  public formProduct:FormGroup
+  public cartItem:number
+  email = new FormControl(null, [Validators.required, Validators.email])
 
-  constructor( 
-    public apiService:ApiService,
-    public cartService:CartService,
-    private fb: FormBuilder
-    ) { }
+  constructor(private auth:Auth, 
+    private route: ActivatedRoute,
+    private quotation:QuotationService  
+    ) { 
+    // products listener
+    this.auth.products.subscribe((products)=>{
+      this.products_all = products;
+      this.products_filter = products;
+    })
 
-  change(value): void {
-    console.log(value)
-    this.cartItem = value
-    this.totalPrice = this.cartItem + value
-    console.log(value)
+    // quantity item listener
+    this.quotation.quantityItem.subscribe(() => {
+      // refresh list
+      this.products_filter = _.cloneDeep(this.products_filter)
+    })
+
   }
-  dataChanged(event) {
-    this.productObject = event
-    console.log(this.productObject )
-  }
-
+  
   ngOnInit() {
-    this.getProducts();
-    this.formProduct = this.fb.group({
-      name:'name',
-      cant:1,
-      price:'price'
+    this.route.queryParams.subscribe((params) => {
+      this.paramsFilter = params;
+      this.filters();
     });
   }
 
-  getProducts(id?){
-    this.apiService.getProducts().subscribe(
-      data => {
-        console.log(data)
-        this.products = data
-      },
-      error => {
-        console.log(error)
-      }
-    )
+  /**
+   * Add elements to cart
+   * @param id 
+   * @param value 
+   */
+  change(id:any, value:any): void {
+    this.quotation.addItem(id, value);
+  }
+  
+  /**
+   * Open detail modal
+   * @param item 
+   */
+  getDetails(item:any){
+    this.product = item
+    console.log(this.product)
   }
 
-  getDetails(id?){
-    this.product = this.products.find(x => x.id === id);
-    console.log(this.product)
+  /**
+   * Filter list
+   */
+  filters(){
+    let all = _.cloneDeep(this.products_all)
+
+    // category filter
+    if(this.paramsFilter['categories']){
+      let filter = this.paramsFilter['categories']
+      this.products_filter = _.filter(all, function(product:Product){
+        const category_ids = _.mapValues(product.categories, 'name')
+        const match = _.includes(category_ids, filter)
+        if(match){
+          return match
+        }else{
+          let match_parent = _.find(product.categories, {'parent': {'name': filter}})
+          if(!_.isEmpty(match_parent)){
+            return true
+          }
+        }
+        return false
+      })
+    }
+
+    // search filter
+    if(this.paramsFilter['search']){
+      let filter = this.paramsFilter['search']
+      this.products_filter = _.filter(all, function(p:Product){
+        return String(p.name).toLowerCase().search(String(filter).toLowerCase()) != -1;
+      })
+    }
+
+    // no filter
+    if(_.isEmpty(this.paramsFilter)){
+      this.products_filter = this.products_all;
+    }
   }
 
 

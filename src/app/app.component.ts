@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Auth } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'reliper';
+  constructor(private auth:Auth){
+    this.auth.getCategories()
+    this.auth.getProducts()
+  }
 }

@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SafePipe } from './../../pipes/safe.pipe';
 import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
+import { QuoteComponent } from '../productos/components/quote/quote.component';
 
 @NgModule({
   declarations: [
-    SafePipe
+    SafePipe, 
   ],
   imports: [
     CommonModule,
@@ -21,6 +22,7 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
     NgxNumberSpinnerModule,
     SafePipe
   ],
+  providers: [QuoteComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule { }
