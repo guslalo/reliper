@@ -32,3 +32,14 @@
     margin-left: 25%;
 }
 
+@media screen and (max-width: 768px) {
+
+    .menu-container{
+        position: relative;
+    }
+    .right-panel{
+        margin-left: 0;
+    }
+}
+
+

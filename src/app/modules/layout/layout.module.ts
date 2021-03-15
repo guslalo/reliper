@@ -8,7 +8,6 @@ import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductoModule } from '../producto/producto.module';
-import { QuoteComponent } from '../productos/components/quote/quote.component';
 import { ProductosModule } from '../productos/productos.module';
 
 
