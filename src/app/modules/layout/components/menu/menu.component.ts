@@ -34,10 +34,12 @@ export class MenuComponent implements OnInit {
    * Get category childs
    * @param item 
    */
-  getChilds(item: any){
-    this.showPatern = false
-    this.showChild = true  
-    this.categoryActive = item
+  getChilds(item: any, clickeable=true){
+    if(clickeable){
+      this.showPatern = false
+      this.showChild = true  
+      this.categoryActive = item
+    }
     console.log(this.showPatern, this.showChild,  this.categoryActive)
     this.router.navigate([''], { queryParams: { categories: item.name} });
   }
