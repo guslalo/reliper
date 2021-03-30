@@ -20,7 +20,6 @@ header {
 .wrapFlex {
     display: flex;
     flex-flow: column;
-    flex-wrap: wrap;
     justify-content: space-between;
 ;
     header {
@@ -37,6 +36,7 @@ header {
                 list-style: none;
             }
         }
+        
     }
 }
 
@@ -146,7 +146,7 @@ ul.menu {
       
         &:hover {
             i {
-                animation: bounceIn; /* referring directly to the animation's @keyframe declaration */
+                animation: bounceIn; 
                 animation-duration:0.5s;
             }
         }
@@ -353,6 +353,27 @@ ul.menu {
     border-radius: 0.25rem !important;
 }
 
+@media screen and (max-width: 992px) {
+    ul.menu {
+    
+    }
+    .header {
+        padding-bottom: 15px;
+    }
+    footer {
+        padding: 0 10px;
+        .text-right { 
+            text-align:left !important ;
+        }
+    }
+    .boxScroll {
+        height: 150px;
+    }
+    #cotizadorModal .modal-dialog {
+        width: 95%;
+        right: inherit;
+    }
+}
 ngx-number-spinner{
     zoom: 0.85;
 }

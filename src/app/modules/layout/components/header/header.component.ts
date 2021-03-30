@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit {
       if ( $(window).scrollTop() > 54 ) {
         $(".header").stop().animate({'top':'-23px'}, 80, 'linear', function(){
         }); $('.header').addClass('fixed')
-        $(".menu-container").stop().animate({'top':'90px'}, 80, 'linear', function(){
+        $(".menu-container").stop().animate({'top':'85px'}, 80, 'linear', function(){
         });
       } else {
         $(".header").stop().animate({'top':'0px'},80, 'linear', function(){
