@@ -49,31 +49,33 @@
 <!--products-->
 <div class="row products" *ngIf="products_filter" >
     <ng-container *ngFor="let item of products_filter">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-            <div class="product p-4" >
-                <div class="img" (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
-                    <img [src]="item.image">
-                </div>
-                <div class="texts">
-                    <div class="price"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
-                      ${{item.price_1 | safe:'number_format'}}
-                    </div>
-                    <div class="description text-truncate"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
-                       {{item.name}}
-                    </div>
-                    <div class="add2">
-                        <ngx-number-spinner
-                        [value]="item.id | safe:'quotation'"
-                        (change)="change(item.id, $event)" 
-                        [min]="0">
-                        </ngx-number-spinner>
-                    </div>
-                </div>
-            </div>
-     
-       
-    </div>
-  </ng-container>
+      <ng-container *ngIf="item | filtered:paramsFilter">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 {{ animate ? 'fade-in': ''}}">
+          <div class="product p-4" >
+              <div class="img" (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
+                  <img [src]="item.image" onerror="this.onerror=null;this.src='assets/noimage.jpg';">
+              </div>
+              <div class="texts">
+                  <div class="price"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
+                    ${{item.price_1 | safe:'number_format'}}
+                  </div>
+                  <div class="description text-truncate"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
+                      {{item.name}}
+                      
+                  </div>
+                  <div class="add2">
+                      <ngx-number-spinner
+                      [value]="item.id | safe:'quotation'"
+                      (change)="change(item.id, $event)" 
+                      [min]="0">
+                      </ngx-number-spinner>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </ng-container>
+      
+    </ng-container>
 </div><!--/products-->
 
 
@@ -115,9 +117,9 @@
           <app-quote></app-quote>
       </div>
       <div class="modal-footer text-center">
-          <input type="text" class="form-control bg-grey font-size-13 height-45 mb-3" 
+          <input type="text" class="form-control bg-grey font-size-13 height-45" 
           placeholder="Ingresa tu email" [formControl]="email">
-          <button [disabled]="!email.valid" type="button" class="btn btn-primary mt-4 m-auto" data-dismiss="modal">
+          <button [disabled]="!email.valid" type="button" class="btn btn-primary  m-auto" data-dismiss="modal">
             Contactar con ventas
           </button>
       </div>

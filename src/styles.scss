@@ -126,6 +126,10 @@ main {
     background: #eaeaea;
 }
 
+.menu-container{
+    overflow: auto;
+}
+
 ul.menu {
     padding: 0px;
     text-align: center;
@@ -163,7 +167,7 @@ ul.menu {
             bottom: 30px;
             left: 0px;
             display: inline-block;
-            width: 100%;
+            width: 95%;
             font-size: 11px;
             color: #6E6D6D;
             font-weight: bold;
@@ -192,6 +196,10 @@ ul.menu {
     button {
         margin: 0 auto;
         display: block;
+        font-size: 13px;
+        font-weight: 500;
+        background-color: white;
+        border: 1px solid #ccc;
     }
 }
 
@@ -261,10 +269,12 @@ ul.menu {
         .img {
             width: auto;
             cursor: pointer;
-            max-height: 180px;
+            // max-height: 180px;
             text-align: center;
             overflow: hidden;
-            min-height: 180px;
+            max-width: 201px;
+            max-height: 201px;
+            margin: auto;
             img {
                 width: 100%;
                 height: 100%;
@@ -352,6 +362,18 @@ ul.menu {
 .horizontal-wrapper{
     border-radius: 0.25rem !important;
 }
+
+.fade-in {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+    }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
 
 @media screen and (max-width: 992px) {
     ul.menu {

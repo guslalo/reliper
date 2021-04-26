@@ -1,6 +1,6 @@
 <div class="row" *ngIf="product">
     <div class="col-12 col-md-6">
-        <img [src]='product.image'>
+        <img [src]='product.image' onerror="this.onerror=null;this.src='/assets/noimage.jpg';">
     </div>
     <div class="col-12 col-md-6 ficha">
         <h3 class="mt-5">{{product.name}}</h3>

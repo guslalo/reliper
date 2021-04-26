@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router"
 import { Auth } from 'src/app/services/auth.service';
 import { Product } from 'src/app/models/product.model';
+import * as _ from 'lodash';
 
 declare var $:any
 
@@ -40,10 +41,19 @@ export class HeaderComponent implements OnInit {
   /**
    * Search text
    */
-  search(){
+  search(event:any = null){
+    console.log('valid', event)
     if(this.formSearch.valid){
-      console.log('valid')
-      this.router.navigate([''], { queryParams: { search: this.formSearch.value.search } })
+      let search = ''
+      let match = _.find(this.products_all, {'name': this.formSearch.value.search})
+      if(match){
+        search = match.slug
+      }else{
+        search = this.formSearch.value.search
+      }
+      console.log('search match', search)
+      
+      this.router.navigate([''], { queryParams: { search: search } })
     }
   }
 
@@ -52,7 +62,7 @@ export class HeaderComponent implements OnInit {
       if ( $(window).scrollTop() > 54 ) {
         $(".header").stop().animate({'top':'-23px'}, 80, 'linear', function(){
         }); $('.header').addClass('fixed')
-        $(".menu-container").stop().animate({'top':'85px'}, 80, 'linear', function(){
+        $(".menu-container").stop().animate({'top':'85px', 'bottom': 0}, 80, 'linear', function(){
         });
       } else {
         $(".header").stop().animate({'top':'0px'},80, 'linear', function(){
