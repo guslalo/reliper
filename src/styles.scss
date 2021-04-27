@@ -1,19 +1,68 @@
 
 $primary:#0642B0;
+$amarillo:#FFE431;
+
+
+@font-face {
+    font-family: 'futura_ltregular';
+    src: url('assets/fonts/futuralt-webfont.woff2') format('woff2'),
+         url('assets/fonts/futuralt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'futura_ltbold';
+    src: url('assets/fonts/futuralt-bold-webfont.woff2') format('woff2'),
+         url('assets/fonts/futuralt-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 @import "bootstrap";
 body {
-    font-size: 0.8rem;
+    font-size: 0.8rem; 
+    font-family: 'futura_ltregular';
 }
 html {
     background: #eaeaea;
 }
 
 
+.topHeader{
+    height: 30px;
+    background: $primary !important;
+    ul.link {
+        padding: 0px;
+        li {
+            float: left;
+            color: #ffffff;
+            list-style: none;
+            padding-right:10px;
+            position: relative;
+            &:first-child ::after{
+                content: "|";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                right: -24px;
+            }
+            a {
+                color: #ffffff;   
+                line-height: 29px;
+                font-size: 12px;
+            }
+            &:last-child {
+                padding-left: 20px;
+            }
+        }
+    }
+}
 
 header {
     height: 94px;
-    background: #1e4394 !important;
+    background: $amarillo !important;
    
 }
 
@@ -34,6 +83,7 @@ header {
         ul {
             li {
                 list-style: none;
+                margin-bottom: 30px;
             }
         }
         
@@ -68,7 +118,9 @@ header {
             margin-top: 10px;
         }
         .buscador {
+            
             margin-top: 13px !important;
+          
         }
         .logo {
             margin-top:9px;
@@ -90,10 +142,15 @@ header {
     
 }
 
+.fa-shopping-cart {
+    color: #ffffff;
+    font-size: 30px;
+}
+
 .btn {
     &.btn-primary {
      
-            background: #2870ce !important;
+            background: $primary !important;
             border-color: #2870ce ;
         
     }
@@ -123,7 +180,12 @@ header {
 main {
     width: 100%;
     height: 80vh;
-    background: #eaeaea;
+    background: #fafafa;
+}
+
+.menu-container{
+    overflow: auto;
+    overflow-x:hidden;
 }
 
 ul.menu {
@@ -163,9 +225,9 @@ ul.menu {
             bottom: 30px;
             left: 0px;
             display: inline-block;
-            width: 100%;
+            width: 95%;
             font-size: 11px;
-            color: #6E6D6D;
+            color: $primary;
             font-weight: bold;
         }
         &:hover {
@@ -192,6 +254,10 @@ ul.menu {
     button {
         margin: 0 auto;
         display: block;
+        font-size: 13px;
+        font-weight: 500;
+        background-color: white;
+        border: 1px solid #ccc;
     }
 }
 
@@ -199,13 +265,33 @@ ul.menu {
 .boxCarro {
     cursor: pointer;
     border-radius:5px;
-    padding: 5px 20px;
     display: inline-block;
     height: cal(60px - 16px);
-    background:#2870ce;
+    background:$primary;
     text-align: center;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    line-height: 65px;
+
     .total {
         color: #fff;
+    }
+}
+
+.titleCategory {
+    text-transform: uppercase;
+    color: #0642B0;
+    position: relative;
+    padding-left: 25px;
+    font-weight: bold;
+    &:before {
+        content: "";
+        width: 8px;
+        height: 40px;
+        background-color: $amarillo;
+        position: absolute;
+        left: 5px;
     }
 }
 
@@ -235,8 +321,8 @@ ul.menu {
 
 
 .ficha {
-    color:#6E6D6D;
-    h3 { font-size: 18px;}
+    color:#222222;
+    h3 { font-size: 18px; color: $primary;}
     span {
         color:#C4C4C4;
         display: block;
@@ -251,20 +337,22 @@ ul.menu {
         display: inline-block;
         background: #fff;
         border-radius: 5px;
-        border:1px solid #F1F1F1;
+        border:1px solid $primary;
         height:auto;
         min-height: 360px;
-        max-height: 300px;
+        //max-height: 300px;
         //overflow:hidden;
         width:100%;
         position: relative;
         .img {
             width: auto;
             cursor: pointer;
-            max-height: 180px;
+            // max-height: 180px;
             text-align: center;
             overflow: hidden;
-            min-height: 180px;
+            max-width: 201px;
+            max-height: 201px;
+            margin: auto;
             img {
                 width: 100%;
                 height: 100%;
@@ -288,11 +376,12 @@ ul.menu {
         .price {
             margin-top: 20px;
             font-weight: bold;
-            font-size: 14px;
-            color:#6E6D6D;
+            font-size: 20px;
+            color:$primary;
+            text-align: right;
         }
         .description {
-            color:#C4C4C4;
+            color: #222222;
             line-height: 18px;
             margin-bottom: 10px;
             margin-top: 10px;
@@ -353,6 +442,18 @@ ul.menu {
     border-radius: 0.25rem !important;
 }
 
+.fade-in {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+    }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+
 @media screen and (max-width: 992px) {
     ul.menu {
     
@@ -376,4 +477,37 @@ ul.menu {
 }
 ngx-number-spinner{
     zoom: 0.85;
+}
+
+.social {
+    display: inline-block;
+       right: 0px;
+       width: auto;
+       height: auto;
+       ul {
+           margin: 0px !important;
+           list-style: none;
+           li {
+               text-align: center;
+               display: inline-block;
+               a {
+                    display: block;
+                    width: 35px;
+                    height: 40px;
+                    line-height: 29px;
+                    color: #fff;
+                    font-size: 16px;
+                   &:hover {
+                       text-decoration: none;
+                   }
+               }
+           }
+       }
+   }
+
+@media screen and (max-width: 992px) {
+    ul {
+        margin-top: 20px;
+        padding-left: 0px;
+    }
 }

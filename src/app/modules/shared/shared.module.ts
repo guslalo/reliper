@@ -4,10 +4,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SafePipe } from './../../pipes/safe.pipe';
 import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
 import { QuoteComponent } from '../productos/components/quote/quote.component';
+import { FilterPipe } from '../../pipes/filter.pipe';
 
 @NgModule({
   declarations: [
-    SafePipe, 
+    SafePipe, FilterPipe
   ],
   imports: [
     CommonModule,
@@ -20,7 +21,7 @@ import { QuoteComponent } from '../productos/components/quote/quote.component';
     ReactiveFormsModule, 
     FormsModule,
     NgxNumberSpinnerModule,
-    SafePipe
+    SafePipe, FilterPipe
   ],
   providers: [QuoteComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

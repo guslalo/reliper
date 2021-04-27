@@ -8,14 +8,15 @@
         </div>
         <div class="col-12 col-md-5 order-3 order-sm-2 pl-3 pl-md-4">
             <form [formGroup]="formSearch" >
-                <div class="input-group mt-2 buscador">
+                <div class="input-group mt-2 buscador ">
                     <input type="search" (keyup.enter)="search()"  class="form-control bg-grey font-size-13 height-45" 
-                    placeholder="Busca tus productos aquí" list="datalistOptions" aria-label="Recipient's username" 
+                    placeholder="Busca tus productos aquí" list="datalistOptions" aria-label="Recipient's search" 
                     aria-describedby="button-addon2" formControlName="search">
                     <datalist id="datalistOptions">
-                        <option *ngFor="let item of products_all" [value]="item.name">
+                        <option *ngFor="let item of products_all"  [value]="item.name">
                         </option>
-                        </datalist>
+                    </datalist>
+                    
                     <button 
                     (click)="search()"
                     class="btn btn-primary pl-4 pr-4 font-size-13 height-45 border-radius-right" type="button" id="button-addon2">
@@ -24,7 +25,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-6 col-md-3 order-sm-3">
+        <div class="col-6 col-md-3 order-sm-3 text-right">
             <app-quotation></app-quotation>
         </div>
     </div>

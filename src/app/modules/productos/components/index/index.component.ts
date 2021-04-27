@@ -19,6 +19,7 @@ export class IndexComponent implements OnInit {
   public products_filter = []
   public product = {}
   paramsFilter = {}
+  animate = true;
   public totalPrice:number
   public cartItem:number
   email = new FormControl(null, [Validators.required, Validators.email])
@@ -29,14 +30,20 @@ export class IndexComponent implements OnInit {
     ) { 
     // products listener
     this.auth.products.subscribe((products)=>{
-      this.products_all = products;
-      this.products_filter = products;
+      
+      for(let px of products){
+        let match = _.filter(this.products_all, { 'id': px.id});
+        if(match.length == 0){
+          this.products_all.push(px)
+          this.products_filter.push(px)
+        }
+      }
     })
 
     // quantity item listener
     this.quotation.quantityItem.subscribe(() => {
       // refresh list
-      this.products_filter = _.cloneDeep(this.products_filter)
+      // this.products_filter = _.cloneDeep(this.products_filter)
     })
 
   }
@@ -44,7 +51,7 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       this.paramsFilter = params;
-      this.filters();
+      // this.filters();
     });
   }
 
@@ -74,6 +81,7 @@ export class IndexComponent implements OnInit {
 
     // category filter
     if(this.paramsFilter['categories']){
+      console.log('filter', this.paramsFilter['categories'])
       let filter = this.paramsFilter['categories']
       this.products_filter = _.filter(all, function(product:Product){
         const category_ids = _.mapValues(product.categories, 'name')
@@ -81,6 +89,7 @@ export class IndexComponent implements OnInit {
         if(match){
           return match
         }else{
+          
           let match_parent = _.find(product.categories, {'parent': {'name': filter}})
           if(!_.isEmpty(match_parent)){
             return true
@@ -103,6 +112,15 @@ export class IndexComponent implements OnInit {
       this.products_filter = this.products_all;
     }
   }
+
+  // addProductView(product:Product){
+  //   let match = _.filter(this.products_filter, { 'id': product.id});
+  //       if(match.length == 0){
+  //         this.products_filter.push(product)
+  //       }
+  // }
+
+  
 
 
 }

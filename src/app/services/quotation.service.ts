@@ -13,7 +13,7 @@ export class QuotationService {
   quantityItem = new BehaviorSubject(0)
   products_all:Product[]
   quotedProductsArray = []
-  quotedProducts = new BehaviorSubject(null)
+  quotedProducts = new BehaviorSubject([])
 
   constructor(private auth:Auth) { 
     this.auth.products.subscribe((products)=>{
@@ -66,7 +66,7 @@ export class QuotationService {
    */
   calculateQuote(){
 
-    if(this.products_all && this.quotedProductsArray){
+    if(this.products_all && this.quotedProductsArray && _.isArray(this.quotedProductsArray)){
       console.log('quotation items', this.quotedProductsArray)
       // sum quantity
       let quantityItem = _.sumBy(this.quotedProductsArray, function(o) {
@@ -74,22 +74,25 @@ export class QuotationService {
       })
       this.quantityItem.next(quantityItem)
       // quotation list and product list merge
-      let quotedProducts = _.filter(this.products_all, (product:Product)=>{
-        if(product.price_1){
-          return _.includes(_.mapValues(this.quotedProductsArray, 'id'), product.id) 
-        }
-        return false
-      })
-      this.quotedProducts.next(quotedProducts)
-      // sum prices
-      const quotedTemp = this.quotedProductsArray;
-      let totalPrice = _.sumBy(quotedProducts, function(p) {
-        try{
-          let item = _.find(quotedTemp, {'id': p.id})
-          return parseFloat(p.price_1) * item.quantity 
-        }catch(ex){}
-      })
-      this.totalPrice.next(totalPrice)
+      if(_.isArray(this.products_all)){
+        let quotedProducts = _.filter(this.products_all, (product:Product)=>{
+          if(product.price_1){
+            return _.includes(_.mapValues(this.quotedProductsArray, 'id'), product.id) 
+          }
+          return false
+        })
+        this.quotedProducts.next(quotedProducts)
+        // sum prices
+        const quotedTemp = this.quotedProductsArray;
+        let totalPrice = _.sumBy(quotedProducts, function(p) {
+          try{
+            let item = _.find(quotedTemp, {'id': p.id})
+            return parseFloat(p.price_1) * item.quantity 
+          }catch(ex){}
+        })
+        this.totalPrice.next(totalPrice)
+      }
+      
     }      
   }
 }

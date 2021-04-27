@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import * as _ from 'lodash';
 import { ApiService } from './api.service';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,21 @@ import { ApiService } from './api.service';
 export class Auth {
 
   categories = new BehaviorSubject(null);
-  products = new BehaviorSubject(null);
+  products:BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  limit = 20
+  offset = 0
+  count = 0
+  
+  public products$!:Observable<Product[]>;
 
   constructor(public apiService:ApiService) { 
+    // this.products$ = new Observable((observer) => {
+    //   this.products.subscribe(values => {
+    //     if(values){
+    //       observer.add(values)
+    //     }
+    //   })
+    // });
   }
 
   /**
@@ -19,10 +32,21 @@ export class Auth {
    * @param id Get all product
    */
   getProducts(param:any=null){
+    param = {'limit': this.limit, 'offset': this.offset, 'ordering': 'id'}
     this.apiService.getProducts(param).subscribe(
-      data => {
-        console.log(data)
-        this.products.next(data)
+      async data => {
+        // console.log('products', data)
+        const products:Product[] = data.results
+        let myProd = this.products.getValue()
+        myProd.push(...products)
+        this.products.next(myProd)
+        if(this.products.getValue().length < data.count){
+          this.offset += this.limit
+          await this.delay(650);
+          this.getProducts()
+        }else{
+          console.log('product', this.products.getValue())
+        }
       },
       error => {
         console.log(error)
@@ -41,5 +65,9 @@ export class Auth {
       }
     )
   }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
   
 }

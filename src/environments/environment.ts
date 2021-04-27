@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl:'https://sms-admin.tmsgo.cl/'
+  baseUrl:'https://sms-admin.tmsgo.cl/',
+  token: '227f00df6c0258cb1b44d1f0cfbfeac8c05a90da',
+  //baseUrl:'http://127.0.0.1:8000/'
 };
 
 /*
