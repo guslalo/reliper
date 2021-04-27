@@ -2,9 +2,28 @@
 $primary:#0642B0;
 $amarillo:#FFE431;
 
+
+@font-face {
+    font-family: 'futura_ltregular';
+    src: url('assets/fonts/futuralt-webfont.woff2') format('woff2'),
+         url('assets/fonts/futuralt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'futura_ltbold';
+    src: url('assets/fonts/futuralt-bold-webfont.woff2') format('woff2'),
+         url('assets/fonts/futuralt-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 @import "bootstrap";
 body {
-    font-size: 0.8rem;
+    font-size: 0.8rem; 
+    font-family: 'futura_ltregular';
 }
 html {
     background: #eaeaea;
@@ -64,6 +83,7 @@ header {
         ul {
             li {
                 list-style: none;
+                margin-bottom: 30px;
             }
         }
         
@@ -249,10 +269,10 @@ ul.menu {
     height: cal(60px - 16px);
     background:$primary;
     text-align: center;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     text-align: center;
-    line-height: 70px;
+    line-height: 65px;
 
     .total {
         color: #fff;
@@ -302,7 +322,7 @@ ul.menu {
 
 .ficha {
     color:#222222;
-    h3 { font-size: 18px;}
+    h3 { font-size: 18px; color: $primary;}
     span {
         color:#C4C4C4;
         display: block;
@@ -320,7 +340,7 @@ ul.menu {
         border:1px solid $primary;
         height:auto;
         min-height: 360px;
-        max-height: 300px;
+        //max-height: 300px;
         //overflow:hidden;
         width:100%;
         position: relative;
