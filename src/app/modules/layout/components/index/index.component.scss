@@ -34,7 +34,12 @@
 }
 
 @media screen and (max-width: 768px) {
-
+    .fa-shopping-cart {
+        font-size: 25px;
+    }
+    .link {
+        display: none;
+    }
     .menu-container{
         position: relative;
     }

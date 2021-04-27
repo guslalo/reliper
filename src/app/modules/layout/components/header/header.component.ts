@@ -7,6 +7,9 @@ import { Auth } from 'src/app/services/auth.service';
 import { Product } from 'src/app/models/product.model';
 import * as _ from 'lodash';
 
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+
+
 declare var $:any
 
 @Component({
@@ -22,7 +25,8 @@ export class HeaderComponent implements OnInit {
     public auth:Auth,
     public apiService:ApiService,
     public globalService:GlobalService,
-    private router: Router
+    private router: Router,
+    public breakpointObserver: BreakpointObserver,
     ) { 
 
       // products listener
@@ -32,10 +36,20 @@ export class HeaderComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.menuStick();
+ 
     this.formSearch = new FormGroup({
       search: new FormControl(null, [Validators.required, Validators.minLength(1)] )
     });
+    this.breakpointObserver.observe(['(min-width: 1280px)']).subscribe((state: BreakpointState) => {
+      if (state.matches) {
+        // desktop
+        this.menuStick();
+      } else {
+        // mobile
+    
+      }
+    });
+
   }
 
   /**
@@ -65,8 +79,11 @@ export class HeaderComponent implements OnInit {
         $(".menu-container").stop().animate({'top':'85px', 'bottom': 0}, 80, 'linear', function(){
         });
       } else {
+        $(".menu-container").stop().animate({'top':'125px', 'bottom': 0}, 80, 'linear', function(){
+        });
         $(".header").stop().animate({'top':'0px'},80, 'linear', function(){
         }); $('.header').removeClass('fixed')
+      
       }
     });
   }
