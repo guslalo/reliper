@@ -27,6 +27,7 @@ body {
 }
 html {
     background: #eaeaea;
+    overflow-x: hidden;
 }
 
 
@@ -107,7 +108,7 @@ header {
         .boxCarro {
             cursor: pointer;
             position: relative;
-            top: 3px;
+            top: 7px;
             margin-bottom: 0 !important;
             padding: 0px 10px;
             .boxTotal span {
@@ -124,7 +125,7 @@ header {
         }
         .logo {
             margin-top:9px;
-            margin-left: -5px;
+            margin-left: -15px;
         }
     }
 }
