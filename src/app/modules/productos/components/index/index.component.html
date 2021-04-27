@@ -56,14 +56,15 @@
                   <img [src]="item.image" onerror="this.onerror=null;this.src='assets/noimage.jpg';">
               </div>
               <div class="texts">
-                  <div class="price"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
-                    ${{item.price_1 | safe:'number_format'}}
-                  </div>
+                  
                   <div class="description text-truncate"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
                       {{item.name}}
                       
                   </div>
-                  <div class="add2">
+                  <div class="price"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
+                    ${{item.price_1 | safe:'number_format'}}
+                  </div>
+                  <div class="add2 mb-4">
                       <ngx-number-spinner
                       [value]="item.id | safe:'quotation'"
                       (change)="change(item.id, $event)" 

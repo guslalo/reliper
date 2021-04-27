@@ -1,11 +1,13 @@
-<div class="boxCarro mt-2 mb-2 float-right" data-toggle="modal" data-target="#cotizadorModal">
-    <div class="boxTotal mt-1">
-        <span class="font-size-13">${{totalPrice | safe:'number_format'}}</span>
-    </div>
-    <div class="total mt-1">
-        <span class="font-size-13">{{ quantityItem }} items</span>
-    </div>
+<div class="boxCarro mt-2 mb-2  rounded-circle d-inline-block mr-2" data-toggle="modal" data-target="#cotizadorModal">
+    <i class="fa fa-shopping-cart"></i>
 </div>
+<div class="boxTotal mt-1 d-inline-block mr-2">
+    <span class="font-size-13">${{totalPrice | safe:'number_format'}}</span>
+</div>
+<div class="total mt-1 d-inline-block">
+    <span class="font-size-13">{{ quantityItem }} items</span>
+</div>
+
 
 
  
