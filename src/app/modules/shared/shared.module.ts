@@ -6,6 +6,7 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
 import { QuoteComponent } from '../productos/components/quote/quote.component';
 import { FilterPipe } from '../../pipes/filter.pipe';
 
+
 @NgModule({
   declarations: [
     SafePipe, FilterPipe
@@ -14,14 +15,16 @@ import { FilterPipe } from '../../pipes/filter.pipe';
     CommonModule,
     ReactiveFormsModule, 
     FormsModule,
-    NgxNumberSpinnerModule
+    NgxNumberSpinnerModule,
+
   ],
   exports:[
     CommonModule,
     ReactiveFormsModule, 
     FormsModule,
     NgxNumberSpinnerModule,
-    SafePipe, FilterPipe
+    SafePipe, FilterPipe,
+
   ],
   providers: [QuoteComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

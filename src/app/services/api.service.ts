@@ -11,6 +11,7 @@ export class ApiService {
 
   private categoryUrl = 'app_catalog/api/category/';
   private productsUrl = 'app_catalog/api/product/';
+  private slider = 'app_catalog/api/slide/';
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +22,12 @@ export class ApiService {
   getProducts(params: any = null): Observable<any> {
 
     return this.http.get<any>(environment.baseUrl + this.productsUrl, {params: params});
+  
+  }
+
+  getSliders(params: any = null): Observable<any> {
+
+    return this.http.get<any>(environment.baseUrl + this.slider, {params: params});
   
   }
 

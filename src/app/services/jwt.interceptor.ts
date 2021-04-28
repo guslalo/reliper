@@ -13,7 +13,7 @@ export class JwtInterceptor implements HttpInterceptor {
         headers: request.headers.set('Authorization', 'Token ' + token),
         // params: request.params.set('organization', org.toString())
       });
-      console.log('request', request);
+      //console.log('request', request);
     }
     return next.handle(request);
   }

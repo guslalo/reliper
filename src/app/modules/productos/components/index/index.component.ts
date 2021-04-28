@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -18,6 +19,7 @@ export class IndexComponent implements OnInit {
   public products_all = []
   public products_filter = []
   public product = {}
+  public slider:any
   paramsFilter = {}
   animate = true;
   public totalPrice:number
@@ -26,7 +28,8 @@ export class IndexComponent implements OnInit {
 
   constructor(private auth:Auth, 
     private route: ActivatedRoute,
-    private quotation:QuotationService  
+    private quotation:QuotationService,  
+    public apiService:ApiService
     ) { 
     // products listener
     this.auth.products.subscribe((products)=>{
@@ -53,6 +56,16 @@ export class IndexComponent implements OnInit {
       this.paramsFilter = params;
       // this.filters();
     });
+    
+    this.apiService.getSliders().subscribe(
+      data => {
+        this.slider = data
+        console.log(data)
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   /**
@@ -81,7 +94,7 @@ export class IndexComponent implements OnInit {
 
     // category filter
     if(this.paramsFilter['categories']){
-      console.log('filter', this.paramsFilter['categories'])
+      //console.log('filter', this.paramsFilter['categories'])
       let filter = this.paramsFilter['categories']
       this.products_filter = _.filter(all, function(product:Product){
         const category_ids = _.mapValues(product.categories, 'name')
