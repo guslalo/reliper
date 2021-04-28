@@ -4,16 +4,13 @@
         <div class="banner">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" *ngIf="slider">
                 <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                  <ng-container *ngFor="let item of slider; let active = first; let i = index">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="i" class="active"></li>
+                  </ng-container>
                 </ol>         
                 <div class="carousel-inner">
-                  
                   <ng-container *ngFor="let item of slider; let active = first;">
-         
                     <div class="carousel-item"  [class.active]="active">
-                      <span *ngIf="isFirst">default</span>
                       <img [src]="item.image">
                       <div class="carousel-caption d-none "><!--d-md-block-->
                         <h5>First slide label</h5>
@@ -21,9 +18,7 @@
                       </div>
                     </div> 
                   </ng-container>               
-                </div>
-                
-               
+                </div>         
                 <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
@@ -50,7 +45,7 @@
               </div>
               <div class="texts">
                   
-                  <div class="description text-truncate"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
+                  <div class="description"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
                       {{item.name}}
                       
                   </div>
