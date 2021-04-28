@@ -67,7 +67,7 @@ export class QuotationService {
   calculateQuote(){
 
     if(this.products_all && this.quotedProductsArray && _.isArray(this.quotedProductsArray)){
-      console.log('quotation items', this.quotedProductsArray)
+      //console.log('quotation items', this.quotedProductsArray)
       // sum quantity
       let quantityItem = _.sumBy(this.quotedProductsArray, function(o) {
         return parseFloat(o.quantity)

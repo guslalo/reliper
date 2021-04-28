@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.idCategoryActive = params.id
-      console.log(this.idCategoryActive)
+      //console.log(this.idCategoryActive)
       this.getProducts(this.idCategoryActive);
     });
     
@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit {
   getProducts(categoryId?){
     this.apiService.getProducts(categoryId).subscribe(
       data => {
-        console.log(data)
+        //console.log(data)
         this.products = data
       },
       error => {
