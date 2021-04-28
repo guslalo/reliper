@@ -7,10 +7,8 @@
     <ng-container  *ngFor="let item of menuCategory">
         <li id="{{item.id}}">
             <a (click)="getChilds(item)" class="p-4 h-100" style="display: block;" >
-                <ng-container *ngIf="item.icon_file == null; else icon2">
-                    <i class="material-icons">
-                        {{item.style}}
-                    </i>
+                <ng-container *ngIf="item.icon_file != null; else icon2">
+                    <img [src]="item.icon_file" style="width:40%; margin-top: 0px;">
                 </ng-container>
                 <ng-template #icon2>
                     <ng-container *ngIf="item.style != null; else icon3">
