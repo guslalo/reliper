@@ -322,10 +322,35 @@ ul.menu {
 }
 
 .detailsProduct {
-    img {
+    .carousel-item img {
         width: 100%;
     }
 }
+
+#carouselExampleCaptions3 .list-inline {
+    white-space:nowrap;
+    overflow-x:auto;
+}
+
+#carouselExampleCaptions3 .carousel-indicators {
+    position: absolute;
+    width: 100%;
+    margin-left: initial;
+    overflow: hidden;
+    bottom: -85px;
+    left: 0px;
+}
+
+#carouselExampleCaptions3 .carousel-indicators > li {
+    width: initial;
+    height: initial;
+    text-indent: initial;
+}
+
+#carouselExampleCaptions3 .carousel-indicators > li.active img {
+    opacity: 0.7;
+}
+
 
 
 .ficha {

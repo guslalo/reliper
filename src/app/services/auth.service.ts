@@ -58,7 +58,7 @@ export class Auth {
     this.apiService.getCategories().subscribe(
       data => {
         this.categories.next(data)
-        //console.log('categories', data)
+        console.log('categories', data)
       },
       error => {
         console.log(error)
