@@ -9,7 +9,9 @@
                     <img [src]="item.image">
                 </div>
                 <div class="texts">
-                    <div class="price"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">${{item.price_1}}</div>
+                    <div class="price"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">
+                      ${{item.price_1}}
+                    </div>
                     <div class="description text-truncate"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">
                        {{item.name}}
                     </div>
