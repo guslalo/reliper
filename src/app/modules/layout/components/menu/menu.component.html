@@ -34,9 +34,22 @@
 <ul class="menu" *ngIf="categoryActive">
     <li id="{{categoryActive.id}}">
         <a class="p-4 h-100" style="display: block;" (click)="getChilds(categoryActive)">
-            <i class="material-icons">
-                {{categoryActive.style}}
-            </i>
+            <ng-container *ngIf="categoryActive.icon_file != null; else icon2">
+                <img [src]="categoryActive.icon_file" style="width:40%; margin-top: 0px;">
+            </ng-container>
+            <ng-template #icon2>
+                <ng-container *ngIf="categoryActive.style != null; else icon3">
+                    <i class="material-icons">
+                        {{categoryActive.style}}
+                    </i>
+                </ng-container>
+            </ng-template>
+            <ng-template #icon3>
+                <i class="material-icons">
+                    build
+                </i>
+            </ng-template>
+            <span>{{categoryActive.name}}</span>
             <span>{{categoryActive.name}}</span>
         </a>
     </li>  
