@@ -1,7 +1,7 @@
 <div class="row" *ngIf="product">
     <div class="col-12 col-md-6">
     
-        <ng-container *ngIf="product?.images.length === 0">
+        <ng-container *ngIf="product?.images?.length === 0">
           <img [src]='product.image' class="img-fluid" onerror="this.onerror=null;this.src='/assets/noimage.jpg';">
         </ng-container>
         
@@ -42,7 +42,10 @@
         <div class="texts">
             <div class="row">
                 <div class="col-6">
-                    <div class="price2 mt-4">Precio: ${{product.price_1}}</div>
+                    <div class="price2 mt-4">
+                      <!-- Precio: ${{product.price_1}} -->
+                      -
+                    </div>
                 </div>
                 <div class="col-6">
                     <div class="add2">

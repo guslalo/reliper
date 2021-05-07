@@ -50,7 +50,8 @@
                       
                   </div>
                   <div class="price"  (click)="getDetails(item)" data-toggle="modal" data-target="#exampleModal">
-                    ${{item.price_1 | safe:'number_format'}}
+                    <!-- ${{item.price_1 | safe:'number_format'}} -->
+                    -
                   </div>
                   <div class="add2 mb-4">
                       <ngx-number-spinner

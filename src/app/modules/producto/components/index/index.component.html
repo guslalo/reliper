@@ -7,7 +7,8 @@
                 </div>
                 <div class="texts">
                     <div class="price"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">
-                      ${{item.price_1}}
+                      <!-- ${{item.price_1}} -->
+                      -
                     </div>
                     <div class="description"  (click)="getDetails(item.id)" data-toggle="modal" data-target="#exampleModal">
                        {{item.name}}
@@ -51,7 +52,10 @@
               <div class="texts">
                   <div class="row">
                       <div class="col-6">
-                          <div class="price2 mt-4">Precio: ${{product.price_1}}</div>
+                          <div class="price2 mt-4">
+                            <!-- Precio: ${{product.price_1}} -->
+                            -
+                          </div>
                       </div>
                       <div class="col-6">
                           <div class="add2">
