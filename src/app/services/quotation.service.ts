@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Product } from '../models/product.model';
 import * as _ from 'lodash';
 import { Auth } from './auth.service';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +12,19 @@ export class QuotationService {
 
   totalPrice= new BehaviorSubject(0)
   quantityItem = new BehaviorSubject(0)
-  products_all:Product[]
+  products_all:Product[] = [];
   quotedProductsArray = []
   quotedProducts = new BehaviorSubject([])
 
-  constructor(private auth:Auth) { 
+
+  constructor(private auth:Auth, public apiService:ApiService) { 
     this.auth.products.subscribe((products)=>{
-      this.products_all = products;
-      this.updateQList()
+      // this.products_all = products;
+      // this.updateQList()
     })
     this.updateQList()
   }
+
 
   /**
    * Add item for quote
@@ -58,16 +61,36 @@ export class QuotationService {
       newList = qlist;
     }
     this.quotedProductsArray = newList
-    this.calculateQuote()
+    console.log('quoted', this.quotedProductsArray);
+    let ids:any[] = _.map(this.quotedProductsArray, 'id');
+    console.log('ids', ids, ids.join(','));
+    this.getProductsIds(ids.join(','));
+    // this.calculateQuote()
+  }
+
+  /**
+   * 
+   * @param id Get all product
+   */
+   getProductsIds(ids:any=null){
+
+    let param = {'id_in': ids}
+    this.apiService.getProducts(param).subscribe(
+      async data => {
+        this.products_all.push(...data);
+        this.calculateQuote();
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   /**
    * Calculate items
    */
   calculateQuote(){
-
     if(this.products_all && this.quotedProductsArray && _.isArray(this.quotedProductsArray)){
-      //console.log('quotation items', this.quotedProductsArray)
       // sum quantity
       let quantityItem = _.sumBy(this.quotedProductsArray, function(o) {
         return parseFloat(o.quantity)
@@ -92,7 +115,7 @@ export class QuotationService {
         })
         this.totalPrice.next(totalPrice)
       }
-      
+      // this.auth.products.next(this.products_all);
     }      
   }
 }

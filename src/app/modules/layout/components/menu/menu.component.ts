@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
   public showPatern:boolean = true;
   public showChild:boolean = false;
   public categoryActive:Categories;
+  public categorySelected:Categories;
   categories: Categories[];
 
   constructor(
@@ -38,11 +39,17 @@ export class MenuComponent implements OnInit {
    * Get category childs
    * @param item 
    */
-  getChilds(item: any, clickeable=true){
+  getChilds(item: Categories, clickeable=true){
+    // categorySelect only active button
+    this.categorySelected = item;
+    console.log('item', item);
+    window.scroll(0,0);
     if(clickeable){
-      this.showPatern = false
-      this.showChild = true  
-      this.categoryActive = item
+      if(item.childs?.length > 0){
+        this.categoryActive = item
+        this.showPatern = false
+        this.showChild = true
+      }
     }
     console.log(this.showPatern, this.showChild,  this.categoryActive)
 
@@ -53,11 +60,12 @@ export class MenuComponent implements OnInit {
    * back to patern categories
    */
   back(){
-    this.showPatern = true
-    this.showChild = false 
-    // this.categoryActive = false
+    window.scroll(0,0);
+    this.showPatern = true;
+    this.showChild = false;
+    this.categoryActive = null;
     let param = {}
-    if(this.categoryActive.parent){
+    if(this.categoryActive?.parent){
 
       let newActive = _.find(_.cloneDeep(this.categories), {'id':this.categoryActive.parent.id})
       console.log('newActive', newActive, this.categoryActive.parent.id)

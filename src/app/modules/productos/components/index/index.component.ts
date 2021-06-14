@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Auth } from 'src/app/services/auth.service';
 import * as _ from 'lodash';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 
 
@@ -17,6 +17,7 @@ import { Product } from 'src/app/models/product.model';
 
 export class IndexComponent implements OnInit {
   public products_all = []
+  // public products$!:Observable<Product[]>;
   public products_filter = []
   public product = {}
   public slider:any
@@ -33,7 +34,7 @@ export class IndexComponent implements OnInit {
     ) { 
     // products listener
     this.auth.products.subscribe((products)=>{
-      
+      console.log('change product....')
       for(let px of products){
         let match = _.filter(this.products_all, { 'id': px.id});
         if(match.length == 0){
@@ -44,9 +45,21 @@ export class IndexComponent implements OnInit {
     })
 
     // quantity item listener
-    this.quotation.quantityItem.subscribe(() => {
+    this.quotation.quotedProducts.subscribe((quotedProducts) => {
       // refresh list
-      // this.products_filter = _.cloneDeep(this.products_filter)
+      this.products_filter = _.cloneDeep(this.products_filter);
+      // _.merge(this.products_filter, this.products_filter)
+      
+      // console.log('cambio en quotation', quotedProducts)
+      // _.forEach(quotedProducts, (prod) => {
+      //   console.log('prod prod', prod)
+      //   _.filter(this.products_filter, (item) => {
+      //     console.log('prod item', item)
+      //     if(item.id == prod.id){
+      //       item = prod
+      //     }
+      //   })
+      // })
     })
 
   }
@@ -74,6 +87,7 @@ export class IndexComponent implements OnInit {
    * @param value 
    */
   change(id:any, value:any): void {
+    console.log('change..')
     this.quotation.addItem(id, value);
   }
   

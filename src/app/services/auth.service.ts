@@ -42,7 +42,7 @@ export class Auth {
         this.products.next(myProd)
         if(this.products.getValue().length < data.count){
           this.offset += this.limit
-          await this.delay(650);
+          await this.delay(500);
           this.getProducts()
         }else{
           console.log('product', this.products.getValue())

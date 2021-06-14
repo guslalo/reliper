@@ -24,6 +24,7 @@ export interface Categories {
     order: number;
     organization: number;
     parent?: Categories;
+    childs?: Categories[];
     images: any[];
 }
 

@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  baseUrl:'https://sms-admin.tmsgo.cl/',
-  token: '227f00df6c0258cb1b44d1f0cfbfeac8c05a90da',
-  //baseUrl:'http://127.0.0.1:8000/'
+  // baseUrl:'https://sms-admin.tmsgo.cl/',
+  token: 'ce24989b61c1370827383c3e79fc7bdd1bd4bd4b',
+  // baseUrl:'https://catalogo-admin.reliper.com/',
+  baseUrl:'https://catalog-backend.tmsgo.cl/'
 };
 
 /*

@@ -1,64 +1,76 @@
-
 <!--menu-->
 <h3 class="titleCategory mb-3">
     Categorías
 </h3>
-<ul class="menu" *ngIf="showPatern">
-    <ng-container  *ngFor="let item of menuCategory">
-        <li id="{{item.id}}">
-            <a (click)="getChilds(item)" class="p-4 h-100" style="display: block;" >
-                <ng-container *ngIf="item.icon_file != null; else icon2">
-                    <img [src]="item.icon_file" style="width:40%; margin-top: 0px;">
-                </ng-container>
-                <ng-template #icon2>
-                    <ng-container *ngIf="item.style != null; else icon3">
-                        <i class="material-icons">
-                            {{item.style}}
-                        </i>
+<div class="container-categories">
+    <ul class="menu" *ngIf="showPatern">
+        <ng-container *ngFor="let item of menuCategory">
+            <li id="{{item.id}}" [class]="item.id == categorySelected?.id ? 'active':''">
+                <a (click)="getChilds(item)" class="p-4 h-100" style="display: block;">
+                    <ng-container *ngIf="item.icon_file != null; else icon2">
+                        <img [src]="item.icon_file" style="width:40%; margin-top: 0px;">
                     </ng-container>
-                </ng-template>
-                <ng-template #icon3>
-                    <i class="material-icons">
-                        build
-                    </i>
-                </ng-template>
-                <span>{{item.name}}</span>
-            </a>
-        </li>   
-    </ng-container> 
-</ul><!--/menu-->  
-<ng-container *ngIf="showChild">
-    <a (click)='back()' class="btn btn-link btn-block text-left mb-4"> < volver </a>
-</ng-container>
-
-<ul class="menu" *ngIf="categoryActive">
-    <li id="{{categoryActive.id}}">
-        <a class="p-4 h-100" style="display: block;" (click)="getChilds(categoryActive)">
-            <ng-container *ngIf="categoryActive.icon_file != null; else icon2">
-                <img [src]="categoryActive.icon_file" style="width:40%; margin-top: 0px;">
-            </ng-container>
-            <ng-template #icon2>
-                <ng-container *ngIf="categoryActive.style != null; else icon3">
-                    <i class="material-icons">
-                        {{categoryActive.style}}
-                    </i>
-                </ng-container>
-            </ng-template>
-            <ng-template #icon3>
-                <i class="material-icons">
-                    build
-                </i>
-            </ng-template>
-            <span>{{categoryActive.name}}</span>
-            <span>{{categoryActive.name}}</span>
-        </a>
-    </li>  
-</ul>
-
-<ng-container *ngIf="showChild">
-    <span class="boxButtons">
-        <ng-container *ngFor="let child of categoryActive?.childs">
-            <button (click)="getChilds(child)"  type="button" class="btn btn-outline-dark btn-block w-50">{{child.name}}</button>
+                    <ng-template #icon2>
+                        <ng-container *ngIf="item.style != null; else icon3">
+                            <i class="material-icons">
+                                {{item.style}}
+                            </i>
+                        </ng-container>
+                    </ng-template>
+                    <ng-template #icon3>
+                        <i class="material-icons">
+                            build
+                        </i>
+                    </ng-template>
+                    <span>{{item.name}}</span>
+                </a>
+            </li>
         </ng-container>
-    </span>
-</ng-container>
+    </ul>
+    <!--/menu-->
+    <ng-container *ngIf="showChild">
+        <div class="btn-back">
+            <span class="chip">
+                <a (click)='back()' class="btn btn-link btn-block text-left mb-4">
+                    < volver 
+                </a>
+            </span> 
+        </div>
+        
+        
+    </ng-container>
+
+    <ul class="menu" *ngIf="categoryActive">
+        <li id="{{categoryActive?.id}}" class="active">
+            <a class="p-4 h-100" style="display: block;" (click)="getChilds(categoryActive)">
+                <ng-container *ngIf="!categoryActive?.parent">
+                    <ng-container *ngIf="categoryActive.icon_file != null; else icon2">
+                        <img [src]="categoryActive.icon_file" style="width:40%; margin-top: 0px;">
+                    </ng-container>
+                    <ng-template #icon2>
+                        <ng-container *ngIf="categoryActive.style != null; else icon3">
+                            <i class="material-icons">
+                                {{categoryActive.style}}
+                            </i>
+                        </ng-container>
+                    </ng-template>
+                    <ng-template #icon3>
+                        <i class="material-icons">
+                            build
+                        </i>
+                    </ng-template>
+                </ng-container>
+                <span>{{categoryActive.name}}</span>
+            </a>
+        </li>
+    </ul>
+
+    <ng-container *ngIf="showChild">
+        <span class="boxButtons">
+            <ng-container *ngFor="let child of categoryActive?.childs">
+                <button (click)="getChilds(child)" type="button"
+                    class="btn btn-outline-dark btn-block w-50">{{child.name}}</button>
+            </ng-container>
+        </span>
+    </ng-container>
+</div>
