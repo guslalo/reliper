@@ -72,20 +72,20 @@ export class HeaderComponent implements OnInit {
   }
 
   menuStick() {
-    $(window).bind('scroll', function () {
-      if ( $(window).scrollTop() > 54 ) {
-        $(".header").stop().animate({'top':'-23px'}, 80, 'linear', function(){
-        }); $('.header').addClass('fixed')
-        $(".menu-container").stop().animate({'top':'85px', 'bottom': 0}, 80, 'linear', function(){
-        });
-      } else {
-        $(".menu-container").stop().animate({'top':'125px', 'bottom': 0}, 80, 'linear', function(){
-        });
-        $(".header").stop().animate({'top':'0px'},80, 'linear', function(){
-        }); $('.header').removeClass('fixed')
+    // $(window).bind('scroll', function () {
+    //   if ( $(window).scrollTop() > 54 ) {
+    //     $(".header").stop().animate({'top':'-23px'}, 80, 'linear', function(){
+    //     }); $('.header').addClass('fixed')
+    //     $(".menu-container").stop().animate({'top':'85px', 'bottom': 0}, 80, 'linear', function(){
+    //     });
+    //   } else {
+    //     $(".menu-container").stop().animate({'top':'125px', 'bottom': 0}, 80, 'linear', function(){
+    //     });
+    //     $(".header").stop().animate({'top':'0px'},80, 'linear', function(){
+    //     }); $('.header').removeClass('fixed')
       
-      }
-    });
+    //   }
+    // });
   }
 
   

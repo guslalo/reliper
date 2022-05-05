@@ -30,12 +30,12 @@
   "dataGroups": [
     {
     "name": "reliper-api",
-    "urls": ["https://sms-admin.tmsgo.cl/"],
+    "urls": ["https://catalogo-admin.reliper.com/"],
     "cacheConfig": {
-      "strategy": "freshness",
-      "maxSize": 300,
-      "maxAge": "1d",
-      "timeout": "1s"
+      "strategy": "performance",
+      "maxSize": 800,
+      "maxAge": "3d",
+      "timeout": "15s"
       }
     }
   ]

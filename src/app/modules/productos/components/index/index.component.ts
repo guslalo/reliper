@@ -17,7 +17,7 @@ import { Product } from 'src/app/models/product.model';
 
 export class IndexComponent implements OnInit {
   public products_all = []
-  // public products$!:Observable<Product[]>;
+  public products$!:Observable<Product[]>;
   public products_filter = []
   public product = {}
   public slider:any
@@ -40,6 +40,7 @@ export class IndexComponent implements OnInit {
         if(match.length == 0){
           this.products_all.push(px)
           this.products_filter.push(px)
+          
         }
       }
     })

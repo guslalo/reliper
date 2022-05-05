@@ -7,7 +7,7 @@ export const environment = {
   // baseUrl:'https://sms-admin.tmsgo.cl/',
   token: 'ce24989b61c1370827383c3e79fc7bdd1bd4bd4b',
   // baseUrl:'https://catalogo-admin.reliper.com/',
-  baseUrl:'https://catalog-backend.tmsgo.cl/'
+  baseUrl:'https://catalogo-admin.reliper.com/'
 };
 
 /*

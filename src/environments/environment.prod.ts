@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  token: '227f00df6c0258cb1b44d1f0cfbfeac8c05a90da',
+  token: 'ce24989b61c1370827383c3e79fc7bdd1bd4bd4b',
   // baseUrl:'https://sms-admin.tmsgo.cl/'
-  baseUrl:'http://catalog-backend.tmsgo.cl/'
+  baseUrl:'https://catalogo-admin.reliper.com/',
   
 };
